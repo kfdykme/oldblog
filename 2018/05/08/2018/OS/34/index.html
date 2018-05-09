@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="kfdykme同学的学习">
 <meta property="og:description" content="Chapter33.4 实时调度 实时任务 任务结束时间有严格约束,必须在deadline前完成 具有紧迫性   前述算法不能很好地满足实时系统对调度的特殊要求，所以引入实时调度  实时操作系统 RTOS 3.4.1 实现实时调度的基本条件   提供必要的调度信息  就绪时间 (该任务成为就绪状态的起始时间) 开始截止时间和完成截止时间 处理时间 (任务开始执行到完成所需时间) 资源要求 优先级">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-09T04:44:10.613Z">
+<meta property="og:updated_time" content="2018-05-09T05:59:27.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3.4 实时调度">
 <meta name="twitter:description" content="Chapter33.4 实时调度 实时任务 任务结束时间有严格约束,必须在deadline前完成 具有紧迫性   前述算法不能很好地满足实时系统对调度的特殊要求，所以引入实时调度  实时操作系统 RTOS 3.4.1 实现实时调度的基本条件   提供必要的调度信息  就绪时间 (该任务成为就绪状态的起始时间) 开始截止时间和完成截止时间 处理时间 (任务开始执行到完成所需时间) 资源要求 优先级">
@@ -351,13 +351,13 @@
 </ol>
 </li>
 </ol>
-<h3 id="3-4-3-常用的几种实时调度算法"><a href="#3-4-3-常用的几种实时调度算法" class="headerlink" title="3.4.3  常用的几种实时调度算法"></a>3.4.3  常用的几种实时调度算法</h3><ol>
+<h3 id="3-4-3-常用的几种实时调度算法"><a href="#3-4-3-常用的几种实时调度算法" class="headerlink" title="3.4.3  常用的几种实时调度算法"></a>3.4.3  常用的几种实时调度算法</h3><ul>
 <li>最早截止时间优先(EDF)算法<ul>
 <li>优先级确定 根据任务开始截至时间来确定任务的优先级,截止时间越早,优先级越高</li>
 <li>实时任务就绪队列 : 最早截止时间的任务排在队列最前</li>
 <li>调度顺序 : 总是选择就绪队列中的第一个任务,为之分配处理机,使之投入运行</li>
 <li>适用范围 :  即可适用于抢占式调度,也可适用于给抢占式调度<ol>
-<li>非抢占式调度方式用于周期实时任务<br>2.</li>
+<li>非抢占式调度方式用于周期实时任务</li>
 </ol>
 </li>
 </ul>
@@ -367,7 +367,7 @@
 <li>主要用于可抢占式调度方式</li>
 </ul>
 </li>
-</ol>
+</ul>
 <ul>
 <li>抢占方式和时机<ul>
 <li>当有任务执行时,只有等待任务的松弛度为0时才会发生任务的调度,其他情况不发生调度</li>
@@ -392,7 +392,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/OS-Study/" rel="tag"># OS,Study</a>
+            <a href="/tags/OS/" rel="tag"># OS</a>
+          
+            <a href="/tags/Study/" rel="tag"># Study</a>
           
         </div>
       
@@ -494,7 +496,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -507,7 +509,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
