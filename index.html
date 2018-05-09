@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/09/2018/Android/BottomSheetBehavior/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/05/09/2018/Android/BottomSheetBehavior/" itemprop="url">BootomSheetBehavior使用记录</a></h1>
         
 
         <div class="post-meta">
@@ -260,7 +260,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-09T13:57:15+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-09T14:01:14+08:00">
                 2018-05-09
               </time>
             
@@ -300,7 +300,10 @@
       
         
           
-            
+            <h1 id="BootomSheetBehavior使用记录"><a href="#BootomSheetBehavior使用记录" class="headerlink" title="BootomSheetBehavior使用记录"></a>BootomSheetBehavior使用记录</h1><ul>
+<li>在魅族mx4 pro 中使用时 </li>
+</ul>
+
           
         
       
@@ -619,29 +622,20 @@
 </ol>
 </li>
 </ol>
-<h3 id="3-4-3-常用的几种实时调度算法"><a href="#3-4-3-常用的几种实时调度算法" class="headerlink" title="3.4.3  常用的几种实时调度算法"></a>3.4.3  常用的几种实时调度算法</h3><ul>
-<li>最早截止时间优先(EDF)算法<ul>
+<h3 id="3-4-3-常用的几种实时调度算法"><a href="#3-4-3-常用的几种实时调度算法" class="headerlink" title="3.4.3  常用的几种实时调度算法"></a>3.4.3  常用的几种实时调度算法</h3><h4 id="最早截止时间优先-EDF-算法"><a href="#最早截止时间优先-EDF-算法" class="headerlink" title="最早截止时间优先(EDF)算法"></a>最早截止时间优先(EDF)算法</h4><ul>
 <li>优先级确定 根据任务开始截至时间来确定任务的优先级,截止时间越早,优先级越高</li>
 <li>实时任务就绪队列 : 最早截止时间的任务排在队列最前</li>
 <li>调度顺序 : 总是选择就绪队列中的第一个任务,为之分配处理机,使之投入运行</li>
 <li>适用范围 :  即可适用于抢占式调度,也可适用于给抢占式调度<ol>
-<li>非抢占式调度方式用于周期实时任务</li>
+<li>非抢占式调度方式用于周期实时任务<h4 id="最低松弛度优先-LLF-算法"><a href="#最低松弛度优先-LLF-算法" class="headerlink" title="最低松弛度优先(LLF)算法"></a>最低松弛度优先(LLF)算法</h4></li>
 </ol>
 </li>
-</ul>
-</li>
-<li>最低松弛度优先(LLF)算法<ul>
 <li>松弛度 = 完成截止时间-剩余运行时间-当前时间</li>
 <li>主要用于可抢占式调度方式</li>
 </ul>
-</li>
-</ul>
-<ul>
-<li>抢占方式和时机<ul>
+<h4 id="抢占方式和时机"><a href="#抢占方式和时机" class="headerlink" title="抢占方式和时机"></a>抢占方式和时机</h4><ul>
 <li>当有任务执行时,只有等待任务的松弛度为0时才会发生任务的调度,其他情况不发生调度</li>
 <li>任务执行结束后或无任务执行时,再比较等待任务的松弛度值,较小的先执行</li>
-</ul>
-</li>
 </ul>
 
           
@@ -2197,7 +2191,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
