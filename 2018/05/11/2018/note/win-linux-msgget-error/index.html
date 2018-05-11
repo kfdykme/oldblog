@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="OS,Study," />
+  <meta name="keywords" content="OS,win子系统," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="3.8 死锁的检测与解除 如果系统不愿意附加太多约束条件预防死锁,也不希望系统额外开销预测并避免死锁,那么只能允许死锁出现,然后解除它 因此,需要有某种方法来检测死锁  3.8.1 死锁的检测 资源分配图 死锁定理 : S为死锁当且仅当S状态的资源分配图是不可完全简化的 死锁检测中的数据结构 可利用资源向量Available ,他表示m类资源中每一类资源的可用数目 把不占用资源的进程(Availa">
-<meta name="keywords" content="OS,Study">
+<meta name="description" content="12msgget(key_t,flag)//在win子系统的linux下调用时失败,错误信息为Function not implements   因为使用win子系统的人应该比较少,但是…  对的就是子系统linux的锅  顺手把相关代码传到云服务器的linux上跑之后就ok了 尝试查看究竟啥原因的时候失败.下次再看头文件.">
+<meta name="keywords" content="OS,win子系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="3.8 死锁的检测与解除">
-<meta property="og:url" content="http://yoursite.com/2018/05/07/2018/OS/38/index.html">
+<meta property="og:title" content="win子系统linux下使用msgget函数失败">
+<meta property="og:url" content="http://yoursite.com/2018/05/11/2018/note/win-linux-msgget-error/index.html">
 <meta property="og:site_name" content="kfdykme同学的学习">
-<meta property="og:description" content="3.8 死锁的检测与解除 如果系统不愿意附加太多约束条件预防死锁,也不希望系统额外开销预测并避免死锁,那么只能允许死锁出现,然后解除它 因此,需要有某种方法来检测死锁  3.8.1 死锁的检测 资源分配图 死锁定理 : S为死锁当且仅当S状态的资源分配图是不可完全简化的 死锁检测中的数据结构 可利用资源向量Available ,他表示m类资源中每一类资源的可用数目 把不占用资源的进程(Availa">
+<meta property="og:description" content="12msgget(key_t,flag)//在win子系统的linux下调用时失败,错误信息为Function not implements   因为使用win子系统的人应该比较少,但是…  对的就是子系统linux的锅  顺手把相关代码传到云服务器的linux上跑之后就ok了 尝试查看究竟啥原因的时候失败.下次再看头文件.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-09T05:44:39.714Z">
+<meta property="og:updated_time" content="2018-05-11T14:39:36.615Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3.8 死锁的检测与解除">
-<meta name="twitter:description" content="3.8 死锁的检测与解除 如果系统不愿意附加太多约束条件预防死锁,也不希望系统额外开销预测并避免死锁,那么只能允许死锁出现,然后解除它 因此,需要有某种方法来检测死锁  3.8.1 死锁的检测 资源分配图 死锁定理 : S为死锁当且仅当S状态的资源分配图是不可完全简化的 死锁检测中的数据结构 可利用资源向量Available ,他表示m类资源中每一类资源的可用数目 把不占用资源的进程(Availa">
+<meta name="twitter:title" content="win子系统linux下使用msgget函数失败">
+<meta name="twitter:description" content="12msgget(key_t,flag)//在win子系统的linux下调用时失败,错误信息为Function not implements   因为使用win子系统的人应该比较少,但是…  对的就是子系统linux的锅  顺手把相关代码传到云服务器的linux上跑之后就ok了 尝试查看究竟啥原因的时候失败.下次再看头文件.">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/07/2018/OS/38/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/11/2018/note/win-linux-msgget-error/"/>
 
 
 
 
 
-  <title>3.8 死锁的检测与解除 | kfdykme同学的学习</title>
+  <title>win子系统linux下使用msgget函数失败 | kfdykme同学的学习</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/07/2018/OS/38/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/2018/note/win-linux-msgget-error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kfdykme">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">3.8 死锁的检测与解除</h1>
+          <h1 class="post-title" itemprop="name headline">win子系统linux下使用msgget函数失败</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T15:52:14+08:00">
-                2018-05-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T22:34:14+08:00">
+                2018-05-11
               </time>
             
 
@@ -310,52 +310,11 @@
       
 
       
-        <h2 id="3-8-死锁的检测与解除"><a href="#3-8-死锁的检测与解除" class="headerlink" title="3.8 死锁的检测与解除"></a>3.8 死锁的检测与解除</h2><ul>
-<li>如果系统不愿意附加太多约束条件预防死锁,也不希望系统额外开销预测并避免死锁,那么只能允许死锁出现,然后解除它</li>
-<li>因此,需要有某种方法来检测死锁</li>
-</ul>
-<h3 id="3-8-1-死锁的检测"><a href="#3-8-1-死锁的检测" class="headerlink" title="3.8.1 死锁的检测"></a>3.8.1 死锁的检测</h3><ol>
-<li>资源分配图</li>
-<li>死锁定理 : S为死锁当且仅当S状态的资源分配图是不可完全简化的</li>
-<li>死锁检测中的数据结构<ol>
-<li>可利用资源向量Available ,他表示m类资源中每一类资源的可用数目</li>
-<li>把不占用资源的进程(Available = 0)记入L表中,即L_i ∪L</li>
-<li>从进程集合中找到一个Request_i &lt; work的进程,作如下处理<ol>
-<li>将其资源分配图简化,释放出资源,增加工作向量Work=Work+ Available</li>
-<li>将他记入L表</li>
-</ol>
-</li>
-<li>若不能把所有进程都记入L表,便表明系统状态s的资源分配图是不可完全简化的.因此,该系统即将发生死锁</li>
-</ol>
-</li>
-</ol>
-<h3 id="3-8-2-死锁的解除"><a href="#3-8-2-死锁的解除" class="headerlink" title="3.8.2 死锁的解除"></a>3.8.2 死锁的解除</h3><ul>
-<li><p>常用两种解除死锁方法</p>
-<ol>
-<li>剥夺资源,从其他进程剥夺足够数量的资源给死锁进程,以解除死锁状态</li>
-<li>撤销进程,最简单的撤销进程的方法,是使全部死锁进程都夭折掉;或按某种顺序逐渐逐个撤销进程,直至有足够的资源可用,使死锁状态消除为止</li>
-</ol>
-</li>
-<li><p>按照解除死锁复杂度递增的顺序列出解除死锁的方法</p>
-<ol>
-<li>撤销死锁进程</li>
-<li>把死锁进程恢复到前一个检查点,重新执行每个进程</li>
-<li>按某种原则逐个选择死锁进程进行撤销,直到解除系统死锁</li>
-<li>按照某种原则逐个剥夺进程资源,直到解除死锁</li>
-</ol>
-</li>
-<li><p>最小代价原则</p>
+        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">msgget(<span class="keyword">key_t</span>,flag)</span><br><span class="line"><span class="comment">//在win子系统的linux下调用时失败,错误信息为Function not implements</span></span><br></pre></td></tr></table></figure>
+<p>  因为使用win子系统的人应该比较少,但是…<br>  对的就是子系统linux的锅</p>
 <ul>
-<li>上述第三种第四种方法需要选择系统付出代价最少的进程,最小代价原则<ul>
-<li>到目前为止，花费处理机的时间最少的进程；</li>
-<li>到目前为止，产生输出最少的进程；</li>
-<li>估计未执行部分最多的进程；</li>
-<li>到目前为止，已获得资源量最少的进程；</li>
-<li>优先级最低的进程。</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>顺手把相关代码传到云服务器的linux上跑之后就ok了</li>
+<li>尝试查看究竟啥原因的时候失败.下次再看头文件.</li>
 </ul>
 
       
@@ -376,7 +335,7 @@
           
             <a href="/tags/OS/" rel="tag"># OS</a>
           
-            <a href="/tags/Study/" rel="tag"># Study</a>
+            <a href="/tags/win子系统/" rel="tag"># win子系统</a>
           
         </div>
       
@@ -389,8 +348,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/07/2018/OS/36/" rel="next" title="3.6 预防死锁">
-                <i class="fa fa-chevron-left"></i> 3.6 预防死锁
+              <a href="/2018/05/09/2018/Android/BottomSheetBehavior/" rel="next" title="BootomSheetBehavior使用记录">
+                <i class="fa fa-chevron-left"></i> BootomSheetBehavior使用记录
               </a>
             
           </div>
@@ -398,10 +357,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/08/2018/OS/32/" rel="prev" title="3.2 调度队列模型和调度准则">
-                3.2 调度队列模型和调度准则 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -453,17 +408,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -514,22 +460,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-8-死锁的检测与解除"><span class="nav-number">1.</span> <span class="nav-text">3.8 死锁的检测与解除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-8-1-死锁的检测"><span class="nav-number">1.1.</span> <span class="nav-text">3.8.1 死锁的检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-8-2-死锁的解除"><span class="nav-number">1.2.</span> <span class="nav-text">3.8.2 死锁的解除</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
