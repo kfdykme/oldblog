@@ -239,6 +239,172 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/07/2018/OS/38/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kfdykme同学的学习">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/07/2018/OS/38/" itemprop="url">3.8 死锁的检测与解除</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T15:52:14+08:00">
+                2018-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="3-8-死锁的检测与解除"><a href="#3-8-死锁的检测与解除" class="headerlink" title="3.8 死锁的检测与解除"></a>3.8 死锁的检测与解除</h2><ul>
+<li>如果系统不愿意附加太多约束条件预防死锁,也不希望系统额外开销预测并避免死锁,那么只能允许死锁出现,然后解除它</li>
+<li>因此,需要有某种方法来检测死锁</li>
+</ul>
+<h3 id="3-8-1-死锁的检测"><a href="#3-8-1-死锁的检测" class="headerlink" title="3.8.1 死锁的检测"></a>3.8.1 死锁的检测</h3><ol>
+<li>资源分配图</li>
+<li>死锁定理 : S为死锁当且仅当S状态的资源分配图是不可完全简化的</li>
+<li>死锁检测中的数据结构<ol>
+<li>可利用资源向量Available ,他表示m类资源中每一类资源的可用数目</li>
+<li>把不占用资源的进程(Available = 0)记入L表中,即L_i ∪L</li>
+<li>从进程集合中找到一个Request_i &lt; work的进程,作如下处理<ol>
+<li>将其资源分配图简化,释放出资源,增加工作向量Work=Work+ Available</li>
+<li>将他记入L表</li>
+</ol>
+</li>
+<li>若不能把所有进程都记入L表,便表明系统状态s的资源分配图是不可完全简化的.因此,该系统即将发生死锁</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-8-2-死锁的解除"><a href="#3-8-2-死锁的解除" class="headerlink" title="3.8.2 死锁的解除"></a>3.8.2 死锁的解除</h3><ul>
+<li><p>常用两种解除死锁方法</p>
+<ol>
+<li>剥夺资源,从其他进程剥夺足够数量的资源给死锁进程,以解除死锁状态</li>
+<li>撤销进程,最简单的撤销进程的方法,是使全部死锁进程都夭折掉;或按某种顺序逐渐逐个撤销进程,直至有足够的资源可用,使死锁状态消除为止</li>
+</ol>
+</li>
+<li><p>按照解除死锁复杂度递增的顺序列出解除死锁的方法</p>
+<ol>
+<li>撤销死锁进程</li>
+<li>把死锁进程恢复到前一个检查点,重新执行每个进程</li>
+<li>按某种原则逐个选择死锁进程进行撤销,直到解除系统死锁</li>
+<li>按照某种原则逐个剥夺进程资源,直到解除死锁</li>
+</ol>
+</li>
+<li><p>最小代价原则</p>
+<ul>
+<li>上述第三种第四种方法需要选择系统付出代价最少的进程,最小代价原则<ul>
+<li>到目前为止，花费处理机的时间最少的进程；</li>
+<li>到目前为止，产生输出最少的进程；</li>
+<li>估计未执行部分最多的进程；</li>
+<li>到目前为止，已获得资源量最少的进程；</li>
+<li>优先级最低的进程。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/07/2018/OS/36/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -834,7 +1000,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
