@@ -239,6 +239,261 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/08/2018/quickApp/autoHeightTextArea/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/08/2018/quickApp/autoHeightTextArea/" itemprop="url">快应用中高度自适应的textarea组件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-08T21:27:00+08:00">
+                2018-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="快应用中实现高度自适应的textarea组件"><a href="#快应用中实现高度自适应的textarea组件" class="headerlink" title="快应用中实现高度自适应的textarea组件"></a>快应用中实现高度自适应的textarea组件</h1><p>快应用官方自带的控件的表单组件<textarea></textarea>自带的属性/样式比较少,之前不知道怎么实现textarea根据输入的文本行数改变高度.<br>现在实现了,很是高兴</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>通过修改 textarea的class,使得组件的高度改变为对应class中的值<br>然后又 再次修改 textarea的class,改回没有设置高度的class,这样高度就会自适应为当前组件中内容的高度</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 页面中设置号class会随着 isEx 的改变而改变  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span>  <span class="attr">class</span>=<span class="string">"&#123;&#123;isEx ? 'reply-input-textarea-big' :''&#125;&#125; reply-input-textarea"</span> @<span class="attr">change</span>=<span class="string">"onChangeText"</span>  &gt;</span>&#123;&#123;textToSend&#125;&#125;<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">,onChangeText(e)&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">NOTE:</span> 通过修改 @param isEx 使得 textarea的class改变,高度改变为对应class中的值</span></span><br><span class="line"><span class="comment">     * 然后又 再次修改 @param isEx 使得 textarea的class改回来,高度自适应为当前控件中内容的高度</span></span><br><span class="line"><span class="comment">     * 达到 最大高度的效果</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.isEx = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">this</span>.isEx = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">this</span>.textToSend = e.value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="css"><a href="#css" class="headerlink" title="css"></a>css</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 对应的两个class */</span></span><br><span class="line"><span class="selector-class">.reply-input-textarea-big</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.reply-input-textarea</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80%</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="comment">/* height: 100%; */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/2018/InfomationTheory/Chapter1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/07/2018/InfomationTheory/Chapter1/" itemprop="url">第一章</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-07T10:26:00+08:00">
+                2018-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id=""><a href="#" class="headerlink" title="-"></a>-</h1><h2 id="-1"><a href="#-1" class="headerlink" title="-"></a>-</h2><h2 id="-2"><a href="#-2" class="headerlink" title="-"></a>-</h2><h2 id="-3"><a href="#-3" class="headerlink" title="-"></a>-</h2><h3 id="-4"><a href="#-4" class="headerlink" title="-"></a>-</h3><h3 id="信息论研究的对象-目的和内容"><a href="#信息论研究的对象-目的和内容" class="headerlink" title="信息论研究的对象,目的和内容"></a>信息论研究的对象,目的和内容</h3><p>通信系统模型的组成部分</p>
+<ul>
+<li>信源 : 产生消息的源<ul>
+<li>信源研究的主要问题:信源的统计特性和信源产生信息的速率</li>
+</ul>
+</li>
+<li>编码源 : 将信源发出的消息变换成适于信道传送的信号设备<ul>
+<li>信源编码器</li>
+<li>信道编码器:纠错编码器+调制器</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/06/2018/PrincleofModernInfomationSystem/Chapter4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1415,363 +1670,6 @@ windows的snmp服务很容易打开,百度/google一下你就知道了
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/15/2018/Spenion/record_8/15/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/15/2018/Spenion/record_8/15/" itemprop="url">smart-pension record 1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-15T02:48:14+08:00">
-                2018-08-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="智慧养老系统Android手表端进度报告"><a href="#智慧养老系统Android手表端进度报告" class="headerlink" title="智慧养老系统Android手表端进度报告"></a>智慧养老系统Android手表端进度报告</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一些情况需要简单介绍一下</p>
-<h3 id="手表的情况"><a href="#手表的情况" class="headerlink" title="手表的情况"></a>手表的情况</h3><h4 id="所使用系统情况"><a href="#所使用系统情况" class="headerlink" title="所使用系统情况"></a>所使用系统情况</h4><p>我将所了解到的智能手表简单分为杂牌与大厂(以huawei watch2为例),<br>杂牌手表所使用的系统为Android系统,只是将该系统运行在一个屏幕较小,同时带有表带的手表形状终端上.<br>而大厂(huawei watch2)等手表所使用的为Android wear系统,是专门针对可佩戴设备进行了优化的.</p>
-<h4 id="系统的影响"><a href="#系统的影响" class="headerlink" title="系统的影响"></a>系统的影响</h4><p>Android系统可以对绝大部分手机,手表等兼容,<br>而Android wear系统则不能兼容.<br>即使相同的功能,相似度很高的代码,也会由于use-feature的原因不能与Android系统兼容</p>
-<h3 id="开发与进行整合测试"><a href="#开发与进行整合测试" class="headerlink" title="开发与进行整合测试"></a>开发与进行整合测试</h3><p>开发与最后的整合功能进行测试的这一部分暂时是在我这边展开的,<br>使用的是huawei watch2手表,所以你们想要测试的时候可能暂时会略有麻烦</p>
-<h2 id="功能完成进度"><a href="#功能完成进度" class="headerlink" title="功能完成进度"></a>功能完成进度</h2><p>以下列出已完成的功能(DONE),并作出相应介绍</p>
-<h3 id="DONE"><a href="#DONE" class="headerlink" title="DONE"></a>DONE</h3><ul>
-<li>基本简单ui页面<ul>
-<li>显示佩戴者当前心率及其他信息</li>
-</ul>
-</li>
-<li>获取手表佩戴者的心率,并上传到服务器<ul>
-<li>调用硬件 —- 心率传感器</li>
-<li>暂时以一分钟为间隔上传手表佩戴者在此阶段内的最高心率和最低心率以及平均心率</li>
-</ul>
-</li>
-<li>获取手表佩戴者的步数<ul>
-<li>调用硬件 —- 步数传感器</li>
-<li>每个一段时间将佩戴者今天走的步数上传</li>
-</ul>
-</li>
-<li>获取位置信息<ul>
-<li>从打开智慧养老app开始,每十秒进行一次位置信息获取<ul>
-<li>经纬度使用的坐标类型百度坐标</li>
-<li>如果获取位置信息失败将上传错误类型码</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>获取wifi信息<ul>
-<li>获取设备搜索到的wifi信息</li>
-<li>WiFi信息<ul>
-<li>BSSID mac地址</li>
-<li>SSID wifi名称</li>
-<li>level wifi信号强度</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>对佩戴者动作进行识别并做出反应<ul>
-<li>暂时可以高准确度地识别出的有效动作<ul>
-<li>后摔</li>
-</ul>
-</li>
-<li>对特定动作做出地反应<ul>
-<li>后摔<ul>
-<li>向服务器发送摔倒信息</li>
-<li>拨打紧急电话</li>
-<li>备注1 位置信息会持续发生,所以不在此时特意发送</li>
-<li>备注2 后摔即拨打紧急电话地功能并不算太精准,需要后期修改</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>拨打紧急电话<ul>
-<li>一键按键拨打<ul>
-<li>按下手表上的某一个按键后,拨打预设好的电话</li>
-</ul>
-</li>
-<li>摔倒后拨打紧急电话</li>
-<li>其他说明<ul>
-<li>说明1 紧急电话预设为10086</li>
-<li>说明2 huawei watch2手表拨打紧急电话需要通过手表蓝牙绑定的对应手机,借助该手机sim卡进行拨打,但是可以在手表端进行通话.有sim卡的手表应该可以直接拨打电话</li>
-<li>说明3 部分手表外观上可能只有一个单个的按键以供特点操作(例如返回手表主界面),可能无法进行覆盖该按钮</li>
-<li>说明4 说明2 说明3为我目测…</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/12/2018/quickApp/bbs/record_8_12/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/12/2018/quickApp/bbs/record_8_12/" itemprop="url">usetc-bbs-dev-recode 1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-12T20:26:14+08:00">
-                2018-08-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Start-Login"><a href="#Start-Login" class="headerlink" title="/Start/Login"></a>/Start/Login</h1><h2 id="welcome"><a href="#welcome" class="headerlink" title="welcome"></a>welcome</h2><p>从 UESTC-BBS\n  @quickApp<br>改为 清水河畔</p>
-<h2 id="登陆表格"><a href="#登陆表格" class="headerlink" title="登陆表格"></a>登陆表格</h2><p>placeholder改为中文<br>登陆,注册按钮改为中文</p>
-<h1 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main</h1><h2 id="个人中心"><a href="#个人中心" class="headerlink" title="个人中心"></a>个人中心</h2><h3 id="原先"><a href="#原先" class="headerlink" title="原先"></a>原先</h3><p>首页时显示个人中心按钮在上<br>其他tab时在下</p>
-<h3 id="更改"><a href="#更改" class="headerlink" title="更改"></a>更改</h3><p>统一在下</p>
-<h2 id="图标"><a href="#图标" class="headerlink" title="图标"></a>图标</h2><p>更换图标<br>修改图标路径</p>
-<h1 id="Comp"><a href="#Comp" class="headerlink" title="Comp"></a>Comp</h1><h2 id="FloatBar"><a href="#FloatBar" class="headerlink" title="FloatBar"></a>FloatBar</h2><ul>
-<li>将发送按钮的floatbar改为图片</li>
-<li>floatbar点击直接触发事件</li>
-</ul>
-<h2 id="PostListView"><a href="#PostListView" class="headerlink" title="PostListView"></a>PostListView</h2><ul>
-<li>卡片化设计</li>
-<li>boardname与nickname放到同一行</li>
-<li>点击回复的文本修改</li>
-<li>刷新成功的英文改为中文</li>
-</ul>
-<h1 id="Main-Message"><a href="#Main-Message" class="headerlink" title="Main/Message"></a>Main/Message</h1><h2 id="MessageView"><a href="#MessageView" class="headerlink" title="MessageView"></a>MessageView</h2><ul>
-<li>卡片化设计</li>
-<li>点击头像/用户名跳转到用户信息页面</li>
-</ul>
-<h1 id="Main-Message-PmList"><a href="#Main-Message-PmList" class="headerlink" title="Main/Message/PmList"></a>Main/Message/PmList</h1><ul>
-<li>接收消息方消息显示字体bold,背景颜色更改</li>
-<li>发送消息按钮更改 send-&gt;发送</li>
-<li>显示的已发送的文本信息不会太宽</li>
-<li>点击头像进入用户信息</li>
-<li>选择图片按钮更改</li>
-</ul>
-<h1 id="Post-write"><a href="#Post-write" class="headerlink" title="Post/write"></a>Post/write</h1><ul>
-<li>修改上方选择板块部分的ui<ul>
-<li>宽度写死50%</li>
-</ul>
-</li>
-<li>发送成功后finish</li>
-</ul>
-<h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h2><ul>
-<li>选择 category之后 classificationTypeianj两次<ul>
-<li>回调成功后再次设置</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.classificationType_list = [&#123;</span><br><span class="line">    <span class="string">"classificationType_id"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">"classificationType_name"</span>: <span class="string">"无"</span></span><br><span class="line">&#125;]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.targetClass = <span class="keyword">this</span>.classificationType_list[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-<h1 id="Post-Detail"><a href="#Post-Detail" class="headerlink" title="Post/Detail"></a>Post/Detail</h1><ul>
-<li>刷新完成改为中文提示</li>
-<li>第一次进入时回复数少于10一直卡在正在加载的bug修复</li>
-<li>取消加载完成的toast</li>
-<li>改变回复,评论按钮样式</li>
-<li>topic-content 改为html文本</li>
-</ul>
-<h1 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h1><p>忘记给messageview里面的头像加上点击进入userinfopage的功能[#]</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1822,7 +1720,7 @@ windows的snmp服务很容易打开,百度/google一下你就知道了
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1835,7 +1733,7 @@ windows的snmp服务很容易打开,百度/google一下你就知道了
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
