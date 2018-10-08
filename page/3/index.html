@@ -239,6 +239,1380 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/27/2018/OS/review_chapter6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/27/2018/OS/review_chapter6/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-27T01:26:55+08:00">
+                2018-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Chapter-6"><a href="#Chapter-6" class="headerlink" title="Chapter 6"></a>Chapter 6</h1><h3 id="I-O-控制方式"><a href="#I-O-控制方式" class="headerlink" title="I/O 控制方式"></a>I/O 控制方式</h3><ul>
+<li>四种io方式的基本原理</li>
+<li>四种io方式由高校</li>
+</ul>
+<h2 id="经典问题"><a href="#经典问题" class="headerlink" title="经典问题"></a>经典问题</h2><h3 id="各种io控制方式的比较"><a href="#各种io控制方式的比较" class="headerlink" title="各种io控制方式的比较"></a>各种io控制方式的比较</h3><ul>
+<li>程序直接控制方式<ul>
+<li>适用于结构简单，只需少量硬件的电路；</li>
+</ul>
+</li>
+<li>中断驱动方式<ul>
+<li>适用于高效场合</li>
+</ul>
+</li>
+<li>DMA方式<ul>
+<li>适用于无须CPU介入的控制器来控制内存与外设之间数据交流的场合</li>
+</ul>
+</li>
+<li>通道控制方式<ul>
+<li>适用于以字节为单位的干预，同时实现CPU，通道和I/O设备三者并行操作的场合。</li>
+</ul>
+</li>
+</ul>
+<h3 id="为什么要引入缓冲区"><a href="#为什么要引入缓冲区" class="headerlink" title="为什么要引入缓冲区"></a>为什么要引入缓冲区</h3><p>(1)缓和CPU与I/O设备间速度不匹配的矛盾。<br>(2)减少对CPU的中断频率,放宽对CPU中断响应时间的限制。<br>(3)解决数据粒度不匹配的问题。<br>(4)提高CPU和I/O设备之间的并行性。</p>
+<h3 id="缓冲如何提高I-O-速度"><a href="#缓冲如何提高I-O-速度" class="headerlink" title="缓冲如何提高I/O 速度"></a>缓冲如何提高I/O 速度</h3><p>用户进程加工前一个数据的工作与操作系统读入下一个数据的工作可以同时进行。</p>
+<p>用户进程生成下一个输出数据的工作与操作系统输出前一个输出数据的工作可以同时进行。</p>
+<h3 id="为什么引入设备独立性，如何实现"><a href="#为什么引入设备独立性，如何实现" class="headerlink" title="为什么引入设备独立性，如何实现"></a>为什么引入设备独立性，如何实现</h3><p>提高系统的可适应性和可扩展性</p>
+<p>引入逻辑设备和物理设备概念,在应用程序中,使用逻辑设备名请求设备,系统执行时使用物理设备名</p>
+<h3 id="什么是虚拟设备，实现虚拟设备的关键技术"><a href="#什么是虚拟设备，实现虚拟设备的关键技术" class="headerlink" title="什么是虚拟设备，实现虚拟设备的关键技术"></a>什么是虚拟设备，实现虚拟设备的关键技术</h3><p>一台物理I/O设备虚拟为多台逻辑I/O设备，同样允许多个用户共享一台物理I/O设备。</p>
+<p>SPOOLING技术</p>
+<h3 id="SPOOLing技术的组成，如何利用SPOOLing-技术实现共享打印机"><a href="#SPOOLing技术的组成，如何利用SPOOLing-技术实现共享打印机" class="headerlink" title="SPOOLing技术的组成，如何利用SPOOLing 技术实现共享打印机"></a>SPOOLing技术的组成，如何利用SPOOLing 技术实现共享打印机</h3><ul>
+<li>输入井和输出井<ul>
+<li>在磁盘上的两个存储空间</li>
+<li>输入井模拟脱机输入,暂存输入数据</li>
+<li>输出井模拟脱机输出,暂存输出数据</li>
+</ul>
+</li>
+<li>输入缓冲区和输出缓冲区(内存中)<ul>
+<li>用来缓和CPU与磁盘之间的速度的矛盾</li>
+</ul>
+</li>
+<li>输入进程SPi和输出进程SP0<ul>
+<li>模拟脱机I/O时的外围控制机</li>
+</ul>
+</li>
+<li>井管理程序<ul>
+<li>用来控制作业与磁盘井之间的信息交换</li>
+</ul>
+</li>
+</ul>
+<p>实现</p>
+<h3 id="设备处理程序的功能和处理过程"><a href="#设备处理程序的功能和处理过程" class="headerlink" title="设备处理程序的功能和处理过程"></a>设备处理程序的功能和处理过程</h3><p>(1)接收由I/O进程发来的命令和参数, 并将命令中的抽象要求转换为具体要求。<br>(2)检查用户I/O请求的合法性,了解I/O设备的状态,传递有关参数,设置设备的工作方式。<br>(3)发出I/O命令并检查设备状态。<br>(4)及时响应由控制器或通道发来的中断请求并处理。</p>
+<p>(1)将抽象要求转换为具体要求。<br>设置控制器中的寄存器<br>(2)检查I/O请求的合法性。<br>若请求的设备不支持本次的I/O请求,认为是非法操作。<br>(3)读出和检查设备的状态 。<br>检查设备是否空闲或是否就绪–状态寄存器<br>(4)传送必要的参数 。<br>如数据量、起始地址等。<br>(5)工作方式的设置 。<br>对于有多种工作方式的设备进行设置。<br>(6)启动I/O设备</p>
+<h3 id="对各种磁盘调度算法，计算访问次序和平均寻道时间，性能"><a href="#对各种磁盘调度算法，计算访问次序和平均寻道时间，性能" class="headerlink" title="对各种磁盘调度算法，计算访问次序和平均寻道时间，性能"></a>对各种磁盘调度算法，计算访问次序和平均寻道时间，性能</h3><h3 id="磁盘访问时间的组成和计算"><a href="#磁盘访问时间的组成和计算" class="headerlink" title="磁盘访问时间的组成和计算"></a>磁盘访问时间的组成和计算</h3><p>磁盘访问时间：<br>    1）寻道时间：TS=m*n+s<br>m：常量，n：磁道数，s：磁臂启动时间。<br>对一般的磁盘， 其寻道时间将随寻道距离的增加而增大， 大体上是5-30 ms。</p>
+<pre><code>2）旋转延迟时间：
+</code></pre><p>指定扇区旋转到磁头下所需时间。<br>设每秒r转，则Tr＝1/2r（均值）<br>对于7200转/分，平均延迟时间为4.2ms</p>
+<pre><code>3）数据传输时间：Tt＝b/rN
+</code></pre><p>b：读写字节数<br>N：每道上的字节数</p>
+<p>访问时间：Ta=Ts+1/2r+b/rN</p>
+<h3 id="c9"><a href="#c9" class="headerlink" title="c9"></a>c9</h3><ul>
+<li>联机命令接口<br>  联机命令<br>  终端处理程序<br>  命令解释程序</li>
+<li>程序接口<ul>
+<li>系统调用与一般过程调用的区别</li>
+<li>中断与陷入</li>
+</ul>
+</li>
+<li>图形用户接口</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/25/2018/OS/review/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/25/2018/OS/review/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-25T21:00:40+08:00">
+                2018-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>review</p>
+<h2 id="Chapter-2-3"><a href="#Chapter-2-3" class="headerlink" title="Chapter 2,3"></a>Chapter 2,3</h2><ul>
+<li>进程和线程的概念<ul>
+<li>进程<ul>
+<li>进程是进程实体的运行过程,是系统进行资源分配和调度的一个独立单位</li>
+</ul>
+</li>
+<li>线程<br>-</li>
+</ul>
+</li>
+<li>进程的基本状态及状态转换的原因<ul>
+<li>3种基本状态<ul>
+<li>就绪状态</li>
+<li>执行状态</li>
+<li>阻塞状态</li>
+</ul>
+</li>
+<li>基本状态的转换<ul>
+<li>i/o请求<ul>
+<li>执行-&gt;阻塞</li>
+</ul>
+</li>
+<li>i/o完成<ul>
+<li>阻塞-&gt;就绪</li>
+</ul>
+</li>
+<li>被高优先级的任务抢占或时间片用完<ul>
+<li>执行-&gt;阻塞</li>
+</ul>
+</li>
+<li>进程调度<ul>
+<li>就绪-&gt;执行</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>PCB的作用</p>
+<ul>
+<li>使得一个在多道程序环境中不能独立运行的程序(含数据),成为一个可以独立运行的基本单位-进程</li>
+<li>在进程的生命周期中,操作系统通过pcb对进程进行控制</li>
+<li>是进程存在的唯一标识</li>
+</ul>
+</li>
+<li><p>进程控制的原语操作</p>
+<ul>
+<li>创建</li>
+<li>撤销</li>
+<li>挂起</li>
+<li>激活</li>
+<li>阻塞</li>
+<li>唤醒</li>
+</ul>
+</li>
+<li><p>进程互斥,临界区,进程同步的基本概念,同步准则</p>
+<ul>
+<li>进程互斥<ul>
+<li>多个进程不能同时使用一个资源,当一个进程使用该资源时,其他进程必须等待</li>
+</ul>
+</li>
+<li>临界区<ul>
+<li>访问临界资源的代码</li>
+<li>临界资源<ul>
+<li>互斥使用的资源</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>进程同步<ul>
+<li>多个进程的调用存在时许关系,  某些进程的执行必须先于另一些进程</li>
+</ul>
+</li>
+<li>同步准则<ul>
+<li>空闲让进</li>
+<li>忙则等待</li>
+<li>有限等待</li>
+<li>让权等待</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>记录型信号量</p>
+<ul>
+<li>不存在忙等现象的进程同步机制</li>
+<li>结构<ul>
+<li>int :value</li>
+<li>链表:指向阻塞的进程</li>
+</ul>
+</li>
+<li>wait 的时候阻塞</li>
+<li>signal 的时候唤醒链表中的首个进程<ul>
+<li>整型信号量是不断的测试,是忙等</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>信号量的应用</p>
+<ul>
+<li>利用信号量实现进程互斥</li>
+<li>利用信号量描述前驱关系</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>经典进程同步问题</p>
+<ul>
+<li>生产者/消费者问题<ul>
+<li>互斥进入缓冲区</li>
+<li>同步<ul>
+<li>生产者不能向满缓冲区写,消费者不能向空缓冲区读</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>读者/写者问题<ul>
+<li>条件<ul>
+<li>允许多个读者同时读</li>
+<li>写者互斥写</li>
+<li>写者正在写的时候,不允许读</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>哲学家就餐问题<ul>
+<li>利用and信号量解决<ul>
+<li>最简洁的解法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>进程间通信的原理和实现方法 信箱</p>
+<ul>
+<li>低级<ul>
+<li>互斥和同步</li>
+</ul>
+</li>
+<li>高级<ul>
+<li>共享存储器系统<ul>
+<li>共享数据结构</li>
+<li>共享存储区</li>
+</ul>
+</li>
+<li>管道通信<ul>
+<li>fifo文件</li>
+</ul>
+</li>
+<li>消息传递系统<ul>
+<li>直接<ul>
+<li>send() receive()</li>
+</ul>
+</li>
+<li>间接<ul>
+<li>信箱</li>
+<li>消息缓冲队列通信</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>客户机-服务器系统</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-4-5"><a href="#Chapter-4-5" class="headerlink" title="Chapter 4,5"></a>Chapter 4,5</h2><ul>
+<li>重定位<ul>
+<li>基本概念<ul>
+<li>装入内存时,相对地址要做出相应的修改以得到正确地址</li>
+</ul>
+</li>
+<li>为甚么要引入</li>
+</ul>
+</li>
+<li><p>如何提高内存的利用率</p>
+<ul>
+<li>离散分配<ul>
+<li>程序在内存中不一定连续存放</li>
+</ul>
+</li>
+<li>对换机制<ul>
+<li>把内存中暂不能运行的进程或暂时不用和程序和数据，换到外存上，以腾出足够的内存空间，把已具备运行条件的进程，或进程所需要的程序和数据，换入内存。</li>
+</ul>
+</li>
+<li>动态链接<ul>
+<li>程序运行时，先将主程序所对应的目标程序装入内存并启动运行，当运行过程中又需要调用某段时，才将该段调入内存并进行链接。</li>
+</ul>
+</li>
+<li>虚拟存储器</li>
+<li>存储器共享</li>
+</ul>
+</li>
+<li><p>动态分区分配方式:分配 回收算法</p>
+<ul>
+<li>根据进程的实际需要，动态地为之分配连续的内存空间。即分区的边界可以移动，分区的大小是可变的。动态分区又有两种不同选择，一种是分区的数目固定大小是可变的，而另一种则允许分区的数目和大小都是可变的。</li>
+<li><p>分区分配算法</p>
+<ul>
+<li><p>基于顺序搜索</p>
+<ul>
+<li>最佳适应<ul>
+<li>就是为一作业选择分区时总是寻找其大小最接近作业所要求的存储区域。即：把作业放入这样的分区后剩下的零头最小。</li>
+<li>为了加快查找速度，应将存储空间中所有的空白区按其大小递增的顺序链接起来，组成一空白区链(Free  List)。    </li>
+<li>优点<ul>
+<li>如果存储空间中具有正好是所要求大小的存储空白区，则必然被选中；如果不存在这样的空白区，也只对比要求稍大的空白区进行划分，而绝不会去划分一个更大的空白区。因此，其后遇到大作业到来时，作业要求的存储区域就比较容易得到满足。</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>采用最佳适应算法，在每次分配时，总是产生最小的空白区。因此，经过一段时期后，存储空间中可能留许多这样的空白区，由于其太小而无法使用。为了改善这种情况，在该算法中设置一参数G，用它来确定最小分区的大小。当选择一个分区时，如果选中的空白区与要求的大小之差小于G，则不再对它划分，而把整个这个空白区分配给申请的作业。</li>
+<li>在回收一个分区时，为了把它插入到空白区链中合适的位置上也颇为费时</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>最坏适应<ul>
+<li>为作业选择存储区域时，总是寻找最大的空白区</li>
+<li>为了支持这个算法的实现，空白块应以大小递减的顺序链接起来。</li>
+<li>优点<ul>
+<li>在划分后剩下的空白区也是最大的，因而对以后的分配很可能仍然是有用的</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>由于最大的空白块总是首先被分配而进行划分，当有大的作业时，其存储空间的申请往往得不到满足</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>首次适应</p>
+<ul>
+<li>每个空白区按其在存储空间中地址递增的顺序链在一起，即每个后继空白区的起始地址总是比前者的大。在为作业分配存储区域时，从这个空白区链的始端开始查找，选择第一个足以满足请求的空白块，而不管它究竟有多大。</li>
+<li>这个选择的空白区被分成两部分。一部分与请求的大小相等，分配给作业；剩下的部分留在空白区链中。</li>
+<li>优点<ul>
+<li>算法简单，查找速度快；留在高址部分的大的空白区被划分的机会较少，因而在大作业到来时也比较容易得到满足。</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>这种算法常常利用一个大的空白区适应小作业的请求，从而留下一些较小的无法用的空白区，存储空间利用率不高；</li>
+<li>而且，由于所有的请求都是从空白区链的始端开始查找，因而这些小而无用的空白区集中在这个链的前端，相应地，一些较大空白区在链的尾端才能发现，这种情况将使找到合适空白区的速度降低。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>下次适应</p>
+<ul>
+<li>首次适应算法的一种变形</li>
+<li>把存储空间中空白区构成一个循环链</li>
+<li>每次为存储请求查找合适的分区时，总是从上次查找结束的地方开始，只要找到一个足够大的空白区，就将它划分后分配出去</li>
+<li>优点<ul>
+<li>存储空间的利用更加均衡</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>当需要获得相当大的空白区时，能满足的可能性减少了</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>基于索引搜索</p>
+<ul>
+<li>最快适应<ul>
+<li>将空闲分区根据其容量大小进行分类，对于每一类具有相同容量的所有空闲分区，单独设立一个空闲分区链表。</li>
+<li>这样，系统中存在多个空闲分区链表；</li>
+<li>同时，在内存中设立一张管理分区类型，并记录了该类型空闲分区链表表头的索引表，该表的每一个表项记录了对应类型空闲分区链表表头的指针。</li>
+<li>分配过程：根据进程的长度，寻找到能容纳它的最小空闲分区链表，并取下第一块进行分配即可</li>
+<li>优点：<ul>
+<li>查找效率高。</li>
+<li>该算法在进行空闲分区分配时，不会对任何分区产生分割，所以能保留大的分区，满足对大空间的需求，也不会产生内存碎片。</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>在分区归还主存时算法复杂，系统开销较大。</li>
+<li>该算法在分配空闲分区时是以进程为单位，一个分区只属于一个进程，因此在为进程所分配的一个分区中，或多或少地存在一定的浪费。空闲分区划分越细，浪费则越严重，</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>伙伴系统</p>
+<ul>
+<li>在伙伴系统中，可用内存块的大小为 2k (1≤k≤m)</li>
+<li>2^1表示分配的最小块的尺寸；</li>
+<li>2^m表示分配的最大块的尺寸，通常是可供分配的整个内存空间的大小。</li>
+<li>对空闲区按照大小分类，相同大小的分区链接为一个双向空闲链表；最多可形成 k（0 ≤k≤m ）个链表。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">        进程请求大小为n的存储空间时，</span><br><span class="line">首先计算一个 i 值，使 2i－1 &lt; n ≤ 2i；</span><br><span class="line">在空闲分区大小为 2i 的空闲分区链表中查找。</span><br><span class="line">    if  找到，即把该空闲分区分配给进程。</span><br><span class="line">  else  在分区大小为2i＋1的空闲分区链表中寻找;</span><br><span class="line">                               //表明长度为2i的空闲分区已经耗尽</span><br><span class="line">if  找到大小为2i＋1 的空闲分区</span><br><span class="line">      把该空闲分区分为相等的两个分区（一对伙  伴），其中一个用于分配，另一个加入分区大小为 2i 的空闲分区链表中。</span><br><span class="line">else  查找大小为2i＋2 的空闲分区……</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>回收</p>
+<ul>
+<li>4种<ul>
+<li>与前一个空闲分区邻接<ul>
+<li>与前一个合并</li>
+</ul>
+</li>
+<li>与后一个空闲分区邻接<ul>
+<li>与后一个合并</li>
+</ul>
+</li>
+<li>与前后都邻接<ul>
+<li>3个合并,取消后一个的表项,修改前一个大小</li>
+</ul>
+</li>
+<li>不邻接<ul>
+<li>建立新表项</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>基本分页存储管理方式:<ul>
+<li>为什么引入<ul>
+<li>连续分配方式会产生内/外零头</li>
+<li>为解决零头问题又要进行紧凑等高开销活动</li>
+</ul>
+</li>
+<li>地址变换机构和过程(含具有快表的情况)<ul>
+<li>机构<ul>
+<li>使用寄存器存放页表</li>
+<li>一般系统中<ul>
+<li>将页表存储在内存中</li>
+<li>设置一个页表寄存器(PTR)记录当前运行的进程的页表在内存中的始址和页表长度</li>
+</ul>
+</li>
+<li>具有快表<ul>
+<li>为进程页表设置一个专用的高速缓冲存储器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>过程<ul>
+<li>根据逻辑地址,算出页号和页内偏移量</li>
+<li>从ptr从获取页表首址,然后检索页表,查找指定页面对应的页框号</li>
+<li>用页框号乘以页面大小,获得对应的起始地址,并将其送入物理地址的高端</li>
+<li>将页内偏移量送入物理地址低端,形成完整的物理地址</li>
+<li>快表<ul>
+<li>根据逻辑地址中的页号,查找快表种是否存在对应的页表项</li>
+<li>若块表中存在该表项,称为命中,取出其中的页框号,加上页内偏移量,计算出物理地址</li>
+<li>若快表中不存在该表项,则称为命中失败,则再查找页表,找到逻辑地址中指定页号对应的页框号,同时更新快表将该表项插入快表.并计算物理地址</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>基本分段存储管理方式：为什么引入；地址变换机构和过程（含具有快表的情况）；信息的共享和保护</p>
+<ul>
+<li>没时间看</li>
+</ul>
+</li>
+<li><p>虚拟存储器的基本概念：为什么要引入；特征；实现虚拟存储的关键技术</p>
+<ul>
+<li>为啥子要引入<ul>
+<li>一个程序要求的存储容量超过整个内存空间</li>
+<li>有大量的作业要装入内存运行而内存空间不足</li>
+<li>解决<ul>
+<li>从物理上增加内存容量,</li>
+<li>从逻辑上增加内存容量(虚拟存储技术)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>特征<ul>
+<li>多次性<ul>
+<li>一个作业被分成多次调入内存运行</li>
+</ul>
+</li>
+<li>对换性<ul>
+<li>作业在运行过程中进行换进换出,换进换出能有效提高内存利用率</li>
+</ul>
+</li>
+<li>虚拟性<ul>
+<li>从逻辑上扩充内存容量,使用户所看到的内存容量远大于实际内存容量</li>
+</ul>
+</li>
+<li>虚拟性是以多次性和对换性为基础的,而多次性</li>
+</ul>
+</li>
+<li>实现虚拟存储的关键技术<ul>
+<li>请求分页存储管理方式</li>
+<li>请求分段存储管理方式</li>
+<li>请求段页式存储管理方式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>请求分页系统的基本原理：页表机制；地址变换过程；页面置换算法</p>
+<ul>
+<li>基本原理<ul>
+<li>在纯分页系统上增加,部分页装入,请求调页,页面置换</li>
+<li>作业运行时，只将当前的一部分装入内存其余的放在辅存，一旦发现访问的页不在主存中，则发出缺页中断，由OS将其从辅存调入主存，如果内存无空块，则根据某种算法选择一个页淘汰以便装入新的页面。</li>
+</ul>
+</li>
+<li>请求页表机制<ul>
+<li>作用是将逻辑地址转变为物理地址.由于请求分页管理的特殊需求,故需对页表内容进行扩充,增加某些表项.</li>
+<li>页号|物理块号|状态位P|访问字段A|修改位M|外村地址</li>
+</ul>
+</li>
+<li>地址变换过程<ul>
+<li>难以描述</li>
+</ul>
+</li>
+<li><p>页面置换算法</p>
+<ul>
+<li>最佳置换算法<ul>
+<li>选择永不再用或者最长时间内不再被访问的页面换出</li>
+<li>优点<ul>
+<li>缺页率最低,性能最好</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>依赖于对将来页面访问序列的了解,因此无法实现,所以此算法只是一个理想的算法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>先进先出算法</p>
+<ul>
+<li>选择最先进入内存，即在内存中驻留时间最久的页面换出。<br>可把页面按先后次序链接成一个队列，并设置一替换指针，总是指向最老页面。</li>
+<li>优点：实现简单；</li>
+<li>缺点：不考虑程序的动态性，与进程实际运行的规律不相适应。</li>
+</ul>
+</li>
+<li><p>最近最久未使用算法LRU</p>
+<ul>
+<li>选择最近一段时间内最久不用的页面予以淘汰</li>
+<li>引入硬件支持<ul>
+<li>用寄存器记录某进程中内存中各页的使用情况</li>
+<li>访问时最高为置1,定时信号将寄存器右移</li>
+<li>寄存器数值最小则最久未用</li>
+</ul>
+</li>
+<li>栈<ul>
+<li>利用栈保存当前（最近）使用的各个页面页面号。</li>
+<li>当访问某个页面时，若栈中没有该页号且栈不满，则直接将该页号压入栈顶；若栈中有该页号则将其从原位置移出，压入栈顶；若栈中没有该页号且栈满，则将栈底页号对应页置换出，将新页号压入栈顶。</li>
+<li>栈底为最近最久未用的页面的页面号。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Clock置换算法</p>
+<ul>
+<li>置换一定时间内没有被使用过的页面</li>
+<li>每页设置一个访问位</li>
+<li>循环队列,当某页被访问时，其访问位被置为1。</li>
+<li>置换算法寻找访问位=0的页面作为被置换页。</li>
+<li>指针经过的访问位为1的页重新置0，最后指针停留在被置换页的下一个页。</li>
+<li>若查找一遍后没有访问位是0的页面，则返队首。</li>
+<li>改进<ul>
+<li>思想：<ul>
+<li>考虑置换代价。选择换出页面时，既要是未使用过的页面，又要是未被修改过的页面。把同时满足两条件的页面作为首选淘汰的页。</li>
+<li>由访问位A和修改位M可以组合为四种类型的页面：</li>
+<li>1 类(A=0, M=0)。该页最近既未被访问、又未被修改，最佳淘汰页。</li>
+<li>2 类(A=0, M=1)。该页最近既未被访问，但被修改，不是很好的淘汰页。</li>
+<li>3 类(A=1, M=0)。最近已被访问，但未被修改，该页有可能再被访问。</li>
+<li>4 类(A=1, M=1)。最近已被访问且被修改，该页可能再被访问。</li>
+</ul>
+</li>
+<li>过程<ul>
+<li>1）从指示位置开始，找A=0且M=0的，遇到的第一个为选中页。在第一轮扫描期间不改变访问位A。</li>
+<li>2）若1）失败，开始第二轮扫描，找A=0且M=1，找到的第一个选中。同时将将所有扫描过的页面的访问位A都置0 。</li>
+<li>3）若2）失败，重复回到1）2）</li>
+</ul>
+</li>
+<li>优点<ul>
+<li>减少io操作</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>多次扫描</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>最不常用算法 LFU</p>
+<ul>
+<li>记录每个页面的访问次数,最少访问的首先淘汰</li>
+<li>为页面设置移位寄存器</li>
+</ul>
+</li>
+<li><p>页面缓冲算法</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/20/2018/SoftwareProject/review/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/20/2018/SoftwareProject/review/" itemprop="url">软工复习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-20T08:28:14+08:00">
+                2018-06-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、掌握瀑布、增量、迭代、敏捷等不同软件过程模型的特征和优缺点。</p>
+<ul>
+<li><p>瀑布模型</p>
+<ul>
+<li>1<ul>
+<li>使用广泛,以文档驱动</li>
+<li>用来规范软件开发活动</li>
+<li>很多模型都是在此基础上改进的</li>
+</ul>
+</li>
+<li>特征<ul>
+<li>阶段间具有顺序性和依赖性</li>
+<li>推迟实现的观点</li>
+</ul>
+</li>
+<li>优点<ul>
+<li>每个阶段都有与其相关联的里程碑和可交付产品</li>
+<li>每个阶段结束前完成文档审查,以及早改正错误</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>各个阶段的划分完全固定,阶段之间产生大量的文档,极大增加了工作量</li>
+<li>由于开发模型是线性的,用户只有等到整个过程的末期才能见到开发成果,从而增加了开发的风险</li>
+<li>无法适应需求不明确和需求的变化</li>
+<li>不能反映实际的开发方式,软件开发需要迭代</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>增量模型</p>
+<ul>
+<li>优点<ul>
+<li>增量概念的引入,不需要提供完整的需求,只要有一个增量出现,开发就可以进行</li>
+<li>在项目的初始阶段不需要投入太多的人力资源</li>
+<li>产品逐步交付,软件开发能够较好地适应需求的变化</li>
+<li>能够看到软件中间产品,提出改进意见,减少返工,降低开发风险</li>
+<li>软件能够更早投入市场</li>
+<li>开放式体系结构,便于维护</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>每个增量必须提供一下系统功能,开发者很难根据客户需求给出大小适合的增量</li>
+<li>软件必须具备开放体系结构</li>
+<li>易退化成边做边改的方式,使软件过程控制失去整体性<br>-</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>敏捷开发</p>
+<ul>
+<li><p>优点</p>
+<ul>
+<li>对变化和不确定性有更快速更敏捷的反应</li>
+<li>在快速的同时保持可持续的开发速度</li>
+<li>能较好的适应商业竞争环境下对项目提出的有限资源和有限开发时间的约束</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>极限编程中的测试驱动开发可能会导致系统通过了测试但不是用户所期望的</li>
+<li>重构而不降低系统体系结构的质量是困难的</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>迭代????</li>
+</ul>
+<p>2、软件的功能性需求与非功能性需求分别是什么，非功能性需求一般包含什么内容，需求分析文档一般都包含哪些内容。</p>
+<ul>
+<li>功能性需求<ul>
+<li>描述一个系统的行为,与系统的功能性相关.</li>
+</ul>
+</li>
+<li>非功能性需求<ul>
+<li>详细描述了一个系统的性能特点.</li>
+<li>包含<ul>
+<li>性能需求:如响应时间,并发量</li>
+<li>质量属性:可靠性,可维护性</li>
+<li>对外接口:硬件接口,软件接口,数据库接口</li>
+<li>约束:硬件设施,编程语言</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>需求分析文档一般包含哪些内容</p>
+<ul>
+<li>引言<ul>
+<li>文档目的</li>
+<li>文档约定</li>
+<li>预期的读者和阅读建议</li>
+<li>产品范围</li>
+<li>参考文献</li>
+</ul>
+</li>
+<li>综合描述<ul>
+<li>产品背景</li>
+<li>产品功能以及优先级</li>
+<li>用户特征</li>
+<li>运行环境</li>
+<li>设计与现实上的限制</li>
+<li>假设和依赖性</li>
+</ul>
+</li>
+<li>需求描述<ul>
+<li>功能需求</li>
+<li>数据需求</li>
+<li>性能需求</li>
+<li>外部接口</li>
+<li>设计约束</li>
+<li>软件质量属性</li>
+<li>其他需求</li>
+</ul>
+</li>
+<li><p>附录</p>
+</li>
+<li><p>索引</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>3、用例图，(功能建模)</p>
+<ul>
+<li>要明确用例与参与者的含义，<ul>
+<li>用例代表功能，(不是单独的事务)</li>
+<li>参与者代表系统边界外使用功能的人或系统。</li>
+</ul>
+</li>
+<li>能够区分一个系统中应包含哪些用例，应包含哪些参与者。</li>
+<li>要掌握用例之间的include关系和extend关系，箭头不能画错，<ul>
+<li>A include B，箭头从A指向B，B是A的一部分；</li>
+<li>A extend B，箭头从A指向B，B是基用例，A是扩展用例，A在某些条件下会执行。</li>
+</ul>
+</li>
+</ul>
+<p>4、顺序图（时序图）</p>
+<ul>
+<li>用一个二维图描述系统中各个对象之间的交互关系，要明确纵轴线是关联到对象的，</li>
+<li>消息用从一个对象的生命线到另一个对象生命线的箭头表示，注意消息有先后顺序。<br>要掌握两个要点：<ul>
+<li>一个是有哪些对象需要交互消息，每一个对象都是一条纵轴线，</li>
+<li>另一个是对象间传递的消息名称和顺序，时间上越先执行的消息越在上面。</li>
+</ul>
+</li>
+</ul>
+<p>5、数据流图，(功能建模)</p>
+<ul>
+<li>数据流图用图形化方法表示系统功能及功能之间的数据流转关系，</li>
+<li>构成要素包括<ul>
+<li>外部项、</li>
+<li>数据加工、</li>
+<li>数据存储，</li>
+</ul>
+</li>
+<li>需要明确掌握着三个要素的定义与功能以及三者之间的关系。<ul>
+<li>数据加工即为系统功能模块，</li>
+<li>外部项主要指系统的用户角色，</li>
+<li>数据存储是存储数据的模块，比如文件系统或数据库文件。</li>
+</ul>
+</li>
+<li>要掌握分层数据流图之间上层与下层的关系，<ul>
+<li>一般上层中某个数据加工可以有一个下层数据流图，相对应的上下层数据流图的外部项一般相同。第0层数据流图一般只有一个数据加工，即为整个系统的名称。</li>
+</ul>
+</li>
+</ul>
+<p>6、程序流程图最重要的是清楚各个图形的含义，以及如何配合描述判断、循环等控制逻辑。</p>
+<p>7、掌握等价类的划分方法及设计测试用例的方法，</p>
+<ul>
+<li>要掌握通过划分等价类来确定测试用例的几个步骤：<ul>
+<li>（1）确定有效等价类；</li>
+<li>（2）确定无效等价类；</li>
+<li>（3）对所有等价类列表，并标号；</li>
+<li>（4）设计测试用例，使其覆盖尽可能多的有效等价类，重复这个过程，直至所有有效等价类被覆盖完；</li>
+<li>（5）设计测试用例，使每个测试用例均只覆盖一个无效等价类，重复这个过程，直至所有无效等价类被覆盖完。掌握边界值法。</li>
+</ul>
+</li>
+</ul>
+<p>8、掌握不同的软件测试方法，包括单元测试、集成测试、回归测试等。</p>
+<p>9、掌握软件项目管理的定义与方法，如何对项目进行WBS分解，编制项目进度网络图，什么是项目的关键路径。</p>
+<p>10、软件规模度量中需要掌握KLOC方法、功能点法以及COCOMO方法，清楚不同COCOMO方法的使用场景和计算方法。如何计算工作量，以及如何计算开发时长。</p>
+<p>11、CMMI方法是什么意思，五级CMMI分别是什么。</p>
+<ul>
+<li>能力成熟度模型</li>
+<li>五级<ul>
+<li>初始级</li>
+<li>可重复级</li>
+<li>已定义级</li>
+<li>量化管理</li>
+<li>优化级</li>
+</ul>
+</li>
+</ul>
+<p>12、软件维护的内容与方法。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/2018/OS/interface/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/13/2018/OS/interface/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-13T10:04:38+08:00">
+                2018-06-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>接口</p>
+<p>用户接口{<br>   联机用户接口<br>   脱机用户接口<br>}</p>
+<p>程序接口 api</p>
+<p>9.1.2.3.4.5 看一眼</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/2018/OS/74/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/13/2018/OS/74/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-13T09:36:49+08:00">
+                2018-06-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="7-4-文件共享"><a href="#7-4-文件共享" class="headerlink" title="7.4 文件共享"></a>7.4 文件共享</h2><p>文件共享的实现</p>
+<ul>
+<li>实质</li>
+<li>首要步骤</li>
+<li>实现方式<br>-<ul>
+<li>利用符号链</li>
+</ul>
+</li>
+</ul>
+<h3 id="7-4-1-基于索引结点的共享方式"><a href="#7-4-1-基于索引结点的共享方式" class="headerlink" title="7.4.1 基于索引结点的共享方式"></a>7.4.1 基于索引结点的共享方式</h3><ul>
+<li>在树形结构的目录中,当有两个(或多个)用户要共享一个子目录或文件时,必须将共享文件或总目录链接到两个(或多个)用户的目录中,才能</li>
+</ul>
+<h3 id="7-4-2-利用符号连接实现文件共享"><a href="#7-4-2-利用符号连接实现文件共享" class="headerlink" title="7.4.2 利用符号连接实现文件共享"></a>7.4.2 利用符号连接实现文件共享</h3><p>??<br>(硬连接)<br>(软连接 ln -s)</p>
+<p>3.利用url实现文件共享</p>
+<h3 id="7-5-文件保护"><a href="#7-5-文件保护" class="headerlink" title="7.5 文件保护"></a>7.5 文件保护</h3><p>1 安全<br>2 保护</p>
+<p>保护域protection domain     </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/13/2018/OS/temp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1008,912 +2382,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/11/2018/note/win-linux-msgget-error/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/11/2018/note/win-linux-msgget-error/" itemprop="url">win子系统linux下使用msgget函数失败</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T22:34:14+08:00">
-                2018-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">msgget(<span class="keyword">key_t</span>,flag)</span><br><span class="line"><span class="comment">//在win子系统的linux下调用时失败,错误信息为Function not implements</span></span><br></pre></td></tr></table></figure>
-<p>  因为使用win子系统的人应该比较少,但是…<br>  对的就是子系统linux的锅</p>
-<ul>
-<li>顺手把相关代码传到云服务器的linux上跑之后就ok了</li>
-<li>尝试查看究竟啥原因的时候失败.下次再看头文件.</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/09/2018/Android/BottomSheetBehavior/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/09/2018/Android/BottomSheetBehavior/" itemprop="url">BootomSheetBehavior使用记录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-09T14:01:14+08:00">
-                2018-05-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="BootomSheetBehavior使用记录"><a href="#BootomSheetBehavior使用记录" class="headerlink" title="BootomSheetBehavior使用记录"></a>BootomSheetBehavior使用记录</h1><ul>
-<li>在魅族mx4 pro 中使用BootomSheetBehavior时,由于手机从下方往上滑动时会导致触发.<br>自动切换成多任务管理模式.使得使用效果不佳.</li>
-<li>在BootomSheetBehavior中使用带滑动效果的子view时,由于滑动冲突,无法通过slide将BottomSheetBehavior收回</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/09/2018/OS/OSF-Chapter3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/09/2018/OS/OSF-Chapter3/" itemprop="url">OSF Chapter3</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-09T12:38:09+08:00">
-                2018-05-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Chapter3"><a href="#Chapter3" class="headerlink" title="Chapter3"></a>Chapter3</h1><ul>
-<li><p>a</p>
-<ul>
-<li>掌握进程调度算法,各适用于何种情况</li>
-<li>理解常用的几种实时调度算法</li>
-<li>理解产生死锁的原因</li>
-<li>掌握银行家算法避免死锁</li>
-</ul>
-</li>
-<li><p>b</p>
-<ul>
-<li>多道程序设计中的各种调度算法</li>
-<li>响应比高者优先调度算法的计算过程</li>
-<li>银行家算法</li>
-</ul>
-</li>
-<li><p>c</p>
-<ul>
-<li>处理机是计算机系统中的重要资源</li>
-<li>在多道程序环境下,进程数目通常多于处理机的数目</li>
-<li>系统必须按一定方法动态地把处理机分配给就绪队列中的一个进程</li>
-<li>处理机利用率和系统性能(吞吐量,响应时间)在很大程度上取决于处理机调度</li>
-</ul>
-</li>
-<li><p>作业</p>
-</li>
-<li>作业步</li>
-<li>作业间状态转换</li>
-<li>作业控制块</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/2018/OS/34/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/08/2018/OS/34/" itemprop="url">3.4 实时调度</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-08T20:57:14+08:00">
-                2018-05-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Chapter3"><a href="#Chapter3" class="headerlink" title="Chapter3"></a>Chapter3</h1><h2 id="3-4-实时调度"><a href="#3-4-实时调度" class="headerlink" title="3.4 实时调度"></a>3.4 实时调度</h2><ul>
-<li>实时任务<ul>
-<li>任务结束时间有严格约束,必须在deadline前完成</li>
-<li>具有紧迫性</li>
-</ul>
-</li>
-<li><p>前述算法不能很好地满足实时系统对调度的特殊要求，所以引入实时调度</p>
-</li>
-<li><p>实时操作系统 RTOS</p>
-<h3 id="3-4-1-实现实时调度的基本条件"><a href="#3-4-1-实现实时调度的基本条件" class="headerlink" title="3.4.1 实现实时调度的基本条件"></a>3.4.1 实现实时调度的基本条件</h3></li>
-</ul>
-<ol>
-<li><p>提供必要的调度信息</p>
-<ol>
-<li>就绪时间 (该任务成为就绪状态的起始时间)</li>
-<li>开始截止时间和完成截止时间</li>
-<li>处理时间 (任务开始执行到完成所需时间)</li>
-<li>资源要求</li>
-<li>优先级 .若错过开始截止,则赋予绝对优先级</li>
-</ol>
-</li>
-<li><p>系统处理能力强</p>
-</li>
-<li>采用抢占式调度机制<ul>
-<li>调度程序先调度开始截止时间即将到达的任务</li>
-</ul>
-</li>
-<li>具有快速切换机制<ol>
-<li>具有快速响应外部中断的能力</li>
-<li>快速的任务分配能力</li>
-</ol>
-</li>
-</ol>
-<h3 id="3-4-2-实施调度算法的分类"><a href="#3-4-2-实施调度算法的分类" class="headerlink" title="3.4.2 实施调度算法的分类"></a>3.4.2 实施调度算法的分类</h3><ol>
-<li>非抢占式调度算法<ol>
-<li>非抢占式轮转调度算法<ul>
-<li>????????????????????//</li>
-<li>常用于要求不太严格的实时控制队列</li>
-</ul>
-</li>
-<li>非抢占式优先权调度算法</li>
-</ol>
-</li>
-</ol>
-<ol start="2">
-<li>抢占式调度算法<ol>
-<li>基于时钟中断的抢占式优先权调度算法</li>
-<li>立即抢占的优先权调度算法</li>
-</ol>
-</li>
-</ol>
-<h3 id="3-4-3-常用的几种实时调度算法"><a href="#3-4-3-常用的几种实时调度算法" class="headerlink" title="3.4.3  常用的几种实时调度算法"></a>3.4.3  常用的几种实时调度算法</h3><h4 id="最早截止时间优先-EDF-算法"><a href="#最早截止时间优先-EDF-算法" class="headerlink" title="最早截止时间优先(EDF)算法"></a>最早截止时间优先(EDF)算法</h4><ul>
-<li>优先级确定 根据任务开始截至时间来确定任务的优先级,截止时间越早,优先级越高</li>
-<li>实时任务就绪队列 : 最早截止时间的任务排在队列最前</li>
-<li>调度顺序 : 总是选择就绪队列中的第一个任务,为之分配处理机,使之投入运行</li>
-<li>适用范围 :  即可适用于抢占式调度,也可适用于给抢占式调度<ol>
-<li>非抢占式调度方式用于周期实时任务<h4 id="最低松弛度优先-LLF-算法"><a href="#最低松弛度优先-LLF-算法" class="headerlink" title="最低松弛度优先(LLF)算法"></a>最低松弛度优先(LLF)算法</h4></li>
-</ol>
-</li>
-<li>松弛度 = 完成截止时间-剩余运行时间-当前时间</li>
-<li>主要用于可抢占式调度方式</li>
-</ul>
-<h4 id="抢占方式和时机"><a href="#抢占方式和时机" class="headerlink" title="抢占方式和时机"></a>抢占方式和时机</h4><ul>
-<li>当有任务执行时,只有等待任务的松弛度为0时才会发生任务的调度,其他情况不发生调度</li>
-<li>任务执行结束后或无任务执行时,再比较等待任务的松弛度值,较小的先执行</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/08/2018/OS/33/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/08/2018/OS/33/" itemprop="url">3.3 调度算法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-08T16:51:14+08:00">
-                2018-05-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="3-3-调度算法"><a href="#3-3-调度算法" class="headerlink" title="3.3 调度算法"></a>3.3 调度算法</h2><ul>
-<li>调度算法 : 根据系统分配策略所规定的资源分配算法</li>
-<li>不同类型的系统和系统目标,采用不同的调度算法</li>
-<li>常用的调度算法<ol>
-<li>先来先服务</li>
-<li>段作业(进程)优先</li>
-<li>高优先-高响应比优先</li>
-<li>时间片轮转</li>
-<li>多级反馈队列(理解)</li>
-</ol>
-</li>
-<li>调度算法有的适用于高级调度,有的适用于低级调度,有的既可用于高级调度,也可用于低级调度</li>
-</ul>
-<h3 id="3-3-1-先来先服务和短作业-进程-优先调度算法"><a href="#3-3-1-先来先服务和短作业-进程-优先调度算法" class="headerlink" title="3.3.1 先来先服务和短作业(进程)优先调度算法"></a>3.3.1 先来先服务和短作业(进程)优先调度算法</h3><ol>
-<li><p>先来先服务调度算法</p>
-<ul>
-<li>适用于作业调度和进程调度</li>
-<li>按照作业/进程进入系统的先后次序进行调度,先进入系统者优先;即启动等待时间最长的作业/进程</li>
-<li>优点<ul>
-<li>有利于长作业</li>
-<li>有利于cpu繁忙型作业</li>
-</ul>
-</li>
-<li>缺点<ul>
-<li>不利于短作业.特别是来得较晚的短作业</li>
-<li>不利已I/o繁忙型作业</li>
-</ul>
-</li>
-<li>用于批处理系统,不适于分时系统</li>
-</ul>
-<ol start="2">
-<li>短作业(进程)优先调度算法</li>
-</ol>
-<ul>
-<li>启动要求运行时间最短的算法</li>
-<li>分别用于作业调度和进程调度</li>
-<li>短作业优先(SJF)调度算法<br>从后备队列中选择一个或若干个估计运行时间最短的作业,将它们调入内存运行</li>
-<li>短进程优先(SPF)调度算法<br>从就绪队列中选择一估计运行时间最短的进程,将处理机分配给它,使它立即执行并一直执行到完成,或发生某事件而被阻塞放弃处理机时,再重新调度</li>
-<li>优点<ol>
-<li>能有效降低作业/进程的平均等待时间</li>
-<li>提高系统的吞吐量</li>
-</ol>
-</li>
-<li>缺点<ol>
-<li>对长作业不利,可能导致长作业长期不被调用</li>
-<li>该算法完全未考虑作业的紧迫程度,因不能保证紧迫性作业(进程)会被及时处理</li>
-<li>由于作业(进程)的长短只是根据用户所提供的估计执行时间而定的,而用户又会有意无意地缩短其作业的估计运行时间,导致该算法不一定能真正做到短作业优先调度</li>
-<li>无法实现人机交互</li>
-</ol>
-</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>补充: 最短剩余时间优先调度算法(SRT)<ul>
-<li>调度时选择预期剩余时间最短的进程,</li>
-<li>当一个新进场加入到就绪队列中时,他可能比当前正在运行的进程具有更短的剩余时间.因此,只要新进程就绪,调度器可能抢占当前正在运行的进程</li>
-<li>也可能存在长进程被饿死的危险</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-3-2-优先权调度算法PSA"><a href="#3-3-2-优先权调度算法PSA" class="headerlink" title="3.3.2 优先权调度算法PSA"></a>3.3.2 优先权调度算法PSA</h3><ol>
-<li>优先权调度算法的类型<ol>
-<li>非抢占式优先权算法(用于批处理,要求不严的实时)<ul>
-<li>系统一旦把处理机分配给就绪队列中优先权最高的进程后,该进程便一直进行下去,或因发生某事而使得该进程放弃处理机,系统方可再将处理机重新分配给另一优先权最高的进程</li>
-<li>主要用于批处理系统,也可用于某些对实时性要求不严的实时系统中</li>
-</ul>
-</li>
-<li>抢占式优先权算法(用于要求严格的实时,性能要求较高的批处理和分时)<ul>
-<li>系统把处理机分配给就绪队列中优先权最高的进程,使之执行.但在其执行期间,只要出现了另一个优先权更高的进程,进程调度程序就立即停止当前进程(原优先权最高的进程)的执行,重新将处理机分配给新的优先权最高的进程.</li>
-<li>能更好的紧迫作业的要求</li>
-<li>只要系统中出现一个新的就绪进程,就会进行优先权比较</li>
-<li>用于要求严格的实时,性能要求较高的批处理和分时</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>优先权类型</p>
-<ol>
-<li>静态优先权<ul>
-<li>静态优先权是在进程创建时确定的,且在进程的整个运行期间保持不变</li>
-<li>确定进程优先权的依据</li>
-</ul>
-<ol>
-<li>进程类型<br>系统进程高,一般用户进程低</li>
-<li>进程对资源的需求<br>进程的估计执行时间,内存需求量等.要求少的进程赋予较高的优先权</li>
-<li>用户要求<br>紧迫程度,所付费用</li>
-</ol>
-<ul>
-<li>优点</li>
-<li>简单易行,系统开销小</li>
-<li>缺点</li>
-<li>不够精确,可能出现优先权低的作业或进程长期得不到调度的情况</li>
-</ul>
-</li>
-<li>动态优先权<ul>
-<li>随进程的推进或其等待时间的增加而改变,以获得更好的调度性能</li>
-<li>可规定,在就绪队列中的进程,随着等待时间的增长,其优先权以某一速率提高</li>
-<li>相同优先权初值的进程进入就绪队列,FCFS算法</li>
-<li>不同优先权初值的就绪进程,则优先权低的进程,在等待了足够的时间后,其优先权便可提高到最高,从而获得处理机</li>
-<li>当采用抢占式优先权调度算法时,如果规定当前运行的进程的优先权以某一速率下降,则可防止一个长作业长期的垄断处理机     </li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>高响应比优先调度算法(HRRN High Response Ratio Next)(动态优先权机制)</p>
-<ul>
-<li><p>优先权的变化机制</p>
-<ul>
-<li>优先权 = (等待时间 +要求服务时间)/要求服务时间</li>
-<li>同时 优先权 = 响应比R_p</li>
-<li>所以 响应比 = (等待时间+ 要求服务时间)/要求服务时间 = 响应时间/要求服务时间</li>
-</ul>
-</li>
-<li><p>HRRN 是一种介于FCFS于SJP之间的算法,由于长作业也有机会投入运行,所以</p>
-<ul>
-<li>同一时间处理的作业数显然要小于SJF,</li>
-<li>从而采用HRRN方式时,吞吐量小于SJP,</li>
-<li>由于每次调度前要计算响应比,所以系统开销也要相应增加</li>
-</ul>
-</li>
-<li><p>总结 :</p>
-<ul>
-<li>对短作业有利</li>
-<li>是先来先服务</li>
-<li>对长作业有利</li>
-<li>缺点 : 要进行计算响应比,增加系统开销</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="3-3-3-基于时间片的轮转调度算法"><a href="#3-3-3-基于时间片的轮转调度算法" class="headerlink" title="3.3.3 基于时间片的轮转调度算法"></a>3.3.3 基于时间片的轮转调度算法</h3><ol>
-<li>时间片轮转法<ol>
-<li>基本原理<ul>
-<li>先来先服务</li>
-<li>分配时间片</li>
-<li>保证就绪队列中的所有进程，在一给定的时间内，均能获得一个时间片的处理机执行时间，换言之，系统能在给定的时间内，响应所有用户的请求。</li>
-</ul>
-</li>
-<li>时间片大小的确定<ul>
-<li>考虑因素</li>
-<li>系统对响应时间的要求(用户数一定时,成正比)</li>
-<li>就绪队列中的进程数目(保证响应时间,成反比)</li>
-<li>系统处理能力(保证用户键入的命令能在一个时间片内处理完毕)</li>
-</ul>
-</li>
-<li>优缺点<ul>
-<li>时间片大小对计算机性能的影响</li>
-<li>存在的问题 : 未有效利用系统资源,对于短的,计算型进程比较有利,因为该进程充分利用时间片,而I/O型进程却不利,因为在两次i/o之间仅需很少的cpu时间,却需要等待一个时间片</li>
-<li>常用于分时系统和事务处理系统</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
-<h3 id="3-3-4-多级队列调度算法"><a href="#3-3-4-多级队列调度算法" class="headerlink" title="3.3.4 多级队列调度算法"></a>3.3.4 多级队列调度算法</h3><ul>
-<li>前台的就绪队列时交互性作业的进程,采用时间片轮转法</li>
-<li>后台的就绪队列是批处理作业的进程,采用优先权或短作业优先算法  </li>
-<li>调度方式有两种<ul>
-<li>优先调度前台,若前台无可运行进程,才调度后台</li>
-<li>分配占cpu的时间比例 ,如前台80%,后台20%</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-3-5-多级反馈队列调度算法"><a href="#3-3-5-多级反馈队列调度算法" class="headerlink" title="3.3.5 多级反馈队列调度算法"></a>3.3.5 多级反馈队列调度算法</h3><ul>
-<li>调度算法<ol>
-<li>设置多个就绪队列,并为各个队列赋予不同的优先级.第一个队列的优先级最高,第二个次之,其余各队列的优先级逐个降低.规定在优先权越高的队列,每个进程的时间片就越小</li>
-<li>一个新进程进入内存后,首先将它放入第一队列的末尾,按照FCFS原则等待调度.若该进程不能在该时间片内完成,则降入第二队列的末尾,以此类推,直到第n队列中就采用时间片轮转方式运行.</li>
-<li>仅当第一队列空闲时,调度程序才调度第二队列中的进程运行,以此类推</li>
-</ol>
-</li>
-<li>多级反馈队列调度算法过程<ol>
-<li>按优先级由高到底设置多个队列RQ_i,高优先级队列时间片小</li>
-<li>刚进入系统的进程按FCFS放入最高的RQ_0中</li>
-<li>进程一次时间片没执行完,就降至下一级队列,以此类推降至最低优先级队列后,不在下降</li>
-<li>系统优先调度高优先级队列中的进程,仅当RQ_o中空闲时才调度RQ_1中的进程</li>
-</ol>
-</li>
-<li>多级反馈队列调度算法的性能<ol>
-<li>终端型作业用户<ul>
-<li>交互型作业用户,通常较小,第一队列一个时间片即可完成</li>
-<li>短批处理作业用户,第一队列一个时间片即可完成,或一二两个队列的时间片</li>
-<li>长批处理作业用户,</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<h3 id="3-3-6-基于公平原则的调度算法"><a href="#3-3-6-基于公平原则的调度算法" class="headerlink" title="3.3.6 基于公平原则的调度算法"></a>3.3.6 基于公平原则的调度算法</h3><ol>
-<li>保证调度算法<ul>
-<li>进程获得cpu的比率 = 进程已经执行的时间/(进程创建以来经历的时间/n)</li>
-<li>选择比率最小的,将处理机分配给他</li>
-</ul>
-</li>
-<li>公平分享调度算法<ul>
-<li>以用户为单位进行调度</li>
-</ul>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1959,7 +2432,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1972,7 +2445,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

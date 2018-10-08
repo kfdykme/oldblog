@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Study,PMIS," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Chapter5## n(t)只在信道中产生,整个系统的抗噪性能可以用接收机的抗噪洗呢给你来衡量,相同条件 接收机部分(解调器)统一的分析模型统一的解调模型Sm(t) -&amp;gt; Sm(t)+N(t) –带通滤波器-&amp;gt; Sm(t)+Ni(t) –解调器 -&amp;gt; Mo(t)+ No(t) Bt 带宽Nt 高斯白噪声Nit 窄带高斯白噪声 时域分析:线性系统,信号+噪声,分开分析噪声信号分析">
+<meta name="keywords" content="Study,PMIS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="枋">
+<meta property="og:url" content="http://yoursite.com/2018/09/20/2018/PrincleofModernInfomationSystem/Chapter5/index.html">
+<meta property="og:site_name" content="枋">
+<meta property="og:description" content="Chapter5## n(t)只在信道中产生,整个系统的抗噪性能可以用接收机的抗噪洗呢给你来衡量,相同条件 接收机部分(解调器)统一的分析模型统一的解调模型Sm(t) -&amp;gt; Sm(t)+N(t) –带通滤波器-&amp;gt; Sm(t)+Ni(t) –解调器 -&amp;gt; Mo(t)+ No(t) Bt 带宽Nt 高斯白噪声Nit 窄带高斯白噪声 时域分析:线性系统,信号+噪声,分开分析噪声信号分析">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-20T02:05:13.333Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="枋">
+<meta name="twitter:description" content="Chapter5## n(t)只在信道中产生,整个系统的抗噪性能可以用接收机的抗噪洗呢给你来衡量,相同条件 接收机部分(解调器)统一的分析模型统一的解调模型Sm(t) -&amp;gt; Sm(t)+N(t) –带通滤波器-&amp;gt; Sm(t)+Ni(t) –解调器 -&amp;gt; Mo(t)+ No(t) Bt 带宽Nt 高斯白噪声Nit 窄带高斯白噪声 时域分析:线性系统,信号+噪声,分开分析噪声信号分析">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/20/2018/PrincleofModernInfomationSystem/Chapter5/"/>
+
+
+
+
+
+  <title> | 枋</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">枋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/20/2018/PrincleofModernInfomationSystem/Chapter5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T09:06:52+08:00">
+                2018-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Chapter5"><a href="#Chapter5" class="headerlink" title="Chapter5"></a>Chapter5</h1><p>##</p>
+<p>n(t)只在信道中产生,整个系统的抗噪性能可以用接收机的抗噪洗呢给你来衡量,相同条件</p>
+<h2 id="接收机部分-解调器"><a href="#接收机部分-解调器" class="headerlink" title="接收机部分(解调器)"></a>接收机部分(解调器)</h2><h3 id="统一的分析模型"><a href="#统一的分析模型" class="headerlink" title="统一的分析模型"></a>统一的分析模型</h3><h4 id="统一的解调模型"><a href="#统一的解调模型" class="headerlink" title="统一的解调模型"></a>统一的解调模型</h4><p>Sm(t) -&gt; Sm(t)+N(t) –带通滤波器-&gt; Sm(t)+Ni(t) –解调器 -&gt; Mo(t)+ No(t)</p>
+<p>Bt 带宽<br>Nt 高斯白噪声<br>Nit 窄带高斯白噪声</p>
+<h4 id="时域分析-线性系统-信号-噪声-分开分析"><a href="#时域分析-线性系统-信号-噪声-分开分析" class="headerlink" title="时域分析:线性系统,信号+噪声,分开分析"></a>时域分析:线性系统,信号+噪声,分开分析</h4><p>噪声信号分析<br>nt 平稳高斯白噪声,单边带噪声功率谱密度为..<br>nit 由nt过BPF(前置滤波器)<br>not 有nit过解调器得到</p>
+<p>包络 V(t) 瑞利分布<br>相位 θ(t) 均匀分布</p>
+<p>nit = V(t)cos[2Πf0t+θ(t)]<br>    = V(t)cos(2Πf0t)cosθ(t)-V(t)sin(2Πf0t)sinθ(t)</p>
+<p>f0 就是fc</p>
+<p>同向分量 nct = V(t)cosθ(t)<br>正交xiang分量 nst = V(t)sinθ(t)</p>
+<p>nit = nctcos(…)-nstsin(…)</p>
+<p>均值皆为0.方差相同(自相关函数相同),</p>
+<p>nit 噪声平均功率:</p>
+<pre><code>-----  -----
+</code></pre><p>Ni = nit^2 =nct^2 = … = n0Bt = 2x(n0/2 x Bt)</p>
+<p>有用信号分析<br>已调信号分析</p>
+<p>解调器输入信噪比:<br>Si/Ni = 平均功率/平均功率</p>
+<p>解调器输出信噪比<br>So/No = mot^2/not^2</p>
+<p>调至制度增益 (信噪比增益)</p>
+<p>G = (So/No) / (Si/Ni)</p>
+<h4 id="频域分析-功率谱分析-了解"><a href="#频域分析-功率谱分析-了解" class="headerlink" title="频域分析(功率谱分析,了解)"></a>频域分析(功率谱分析,了解)</h4><h3 id="DSB调至系统的性能"><a href="#DSB调至系统的性能" class="headerlink" title="DSB调至系统的性能"></a>DSB调至系统的性能</h3><h4 id="解调模型"><a href="#解调模型" class="headerlink" title="解调模型"></a>解调模型</h4><p>rt – 前置BPF -&gt; rit –相干解调器-&gt; mot+not</p>
+<p>相干解调器:<br> -x cos(…) -&gt;spt– LPF -&gt;</p>
+<h4 id="时域分析"><a href="#时域分析" class="headerlink" title="时域分析"></a>时域分析</h4><p>Sdsbt = mtcos(…)</p>
+<p>Si = 1/2 m^2<br>噪声<br>……<br>抄书吧  </p>
+<p>DSB调至系统的增益为2,去掉了正交向的噪声</p>
+<p>常规AM</p>
+<h3 id="SSB调制系统的性能"><a href="#SSB调制系统的性能" class="headerlink" title="SSB调制系统的性能"></a>SSB调制系统的性能</h3><h4 id="解调模型-1"><a href="#解调模型-1" class="headerlink" title="解调模型"></a>解调模型</h4><p>带宽时单边</p>
+<p>过程一样</p>
+<h4 id="时域分析-1"><a href="#时域分析-1" class="headerlink" title="时域分析"></a>时域分析</h4><p>输入信噪比<br>输出信噪比<br>spt…</p>
+<p>sdt…</p>
+<p>单边带里面 由正交向,<br>信号的正交向与噪声的正交向一起过滤, 调制增益 1</p>
+<p>G_DSB = 2G_SSB,</p>
+<p>不能说明dsb系统的抗噪声性能比ssb系统好</p>
+<h3 id="AM包络检波的性能"><a href="#AM包络检波的性能" class="headerlink" title="AM包络检波的性能"></a>AM包络检波的性能</h3><h4 id="解调模型-2"><a href="#解调模型-2" class="headerlink" title="解调模型"></a>解调模型</h4><h4 id="时域分析-2"><a href="#时域分析-2" class="headerlink" title="时域分析"></a>时域分析</h4>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Study/" rel="tag"># Study</a>
+          
+            <a href="/tags/PMIS/" rel="tag"># PMIS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/18/2018/FPGAHardwareDesign/Chapter3/" rel="next" title="Chapter 3 基本逻辑与...">
+                <i class="fa fa-chevron-left"></i> Chapter 3 基本逻辑与...
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">kfdykme</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter5"><span class="nav-number">1.</span> <span class="nav-text">Chapter5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#接收机部分-解调器"><span class="nav-number">1.1.</span> <span class="nav-text">接收机部分(解调器)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#统一的分析模型"><span class="nav-number">1.1.1.</span> <span class="nav-text">统一的分析模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#统一的解调模型"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">统一的解调模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时域分析-线性系统-信号-噪声-分开分析"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">时域分析:线性系统,信号+噪声,分开分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#频域分析-功率谱分析-了解"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">频域分析(功率谱分析,了解)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DSB调至系统的性能"><span class="nav-number">1.1.2.</span> <span class="nav-text">DSB调至系统的性能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解调模型"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">解调模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时域分析"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">时域分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSB调制系统的性能"><span class="nav-number">1.1.3.</span> <span class="nav-text">SSB调制系统的性能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解调模型-1"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">解调模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时域分析-1"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">时域分析</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AM包络检波的性能"><span class="nav-number">1.1.4.</span> <span class="nav-text">AM包络检波的性能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解调模型-2"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">解调模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时域分析-2"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">时域分析</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kfdykme</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
