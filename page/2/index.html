@@ -239,6 +239,232 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/06/2018/PrincleofModernInfomationSystem/Chapter4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/06/2018/PrincleofModernInfomationSystem/Chapter4/" itemprop="url">第四章 信道</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-06T09:39:00+08:00">
+                2018-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="信道"><a href="#信道" class="headerlink" title="信道"></a>信道</h1><p>信道 : 介于发信者和收信者之间,供消息经过的通道,<br>频带 :<br>信道频带:信道所能传送的信号频率范围<br>信号频带:信号所含的频率与所占的带宽<br>确定信号:有频谱分析得到;随机信号:由功率谱分析得到</p>
+<h2 id="无线信道"><a href="#无线信道" class="headerlink" title="无线信道"></a>无线信道</h2><p>在无线信道中信号的传输是利用电磁波在空间的传播<br>原则上,任何频率的电磁波皆可产生,但为了有效发射或接收电磁波,要求:天线的尺寸不小于电磁波波长的1/10<br>因此,频率过度,波长过长,则天线过长,难于实现</p>
+<p>电磁波传播的主要模式</p>
+<ul>
+<li>地波模式</li>
+<li>天波模式<ul>
+<li>电磁波经电离层反射而折回地面的传播方式,一次反射可传约4000km</li>
+</ul>
+</li>
+<li>视线模式<ul>
+<li>直线传播,有最大视距</li>
+</ul>
+</li>
+</ul>
+<h2 id="有线信道"><a href="#有线信道" class="headerlink" title="有线信道"></a>有线信道</h2><ul>
+<li>明线</li>
+<li>对称电缆(双绞线) 损耗比</li>
+<li>同轴电缆</li>
+<li>光纤</li>
+</ul>
+<h2 id="信道的数学模型"><a href="#信道的数学模型" class="headerlink" title="信道的数学模型"></a>信道的数学模型</h2><ul>
+<li>狭义信道 (有线信道,无线信道)</li>
+<li>广义信道<ul>
+<li>调制信道</li>
+<li>编码信道</li>
+</ul>
+</li>
+</ul>
+<h3 id="调制信道模型"><a href="#调制信道模型" class="headerlink" title="调制信道模型"></a>调制信道模型</h3><p>调制信道有一对输入输出端,关系表示为:<br>e_0(t) = k(t)e_i(t)+n(t)<br>一般为时变模型,n(t)为加性噪声(或干扰)</p>
+<h2 id="信道特性对信号传输的影响"><a href="#信道特性对信号传输的影响" class="headerlink" title="信道特性对信号传输的影响"></a>信道特性对信号传输的影响</h2><ul>
+<li>相位~频率特性:要求其为通过原点的直线即群时延为常数时无失真</li>
+</ul>
+<p>恒参信道特性分析</p>
+<ul>
+<li>系统的传输函数h(t)=klandau(t-tao)的FT:</li>
+<li>时域分析:信道输出是输入的时延和缩放</li>
+<li>频域分析<pre><code>- 无失真传输条件为:
+    - 幅度响应为实常数
+</code></pre></li>
+</ul>
+<p>实际中信道特性并非完全满足恒参,产生失真:</p>
+<ul>
+<li>频率失真 : 振幅~频率特性不良引起<ul>
+<li>波形畸变=&gt;majianchuanrao(传输数字信号是</li>
+</ul>
+</li>
+<li>相位失真 : 相位~频率希特)<ul>
+<li>对语音影响不打,对数字信号影响大</li>
+<li>解决方发:同上</li>
+</ul>
+</li>
+<li>非线性失真 :<ul>
+<li>元器件特性不理想</li>
+<li>定义<br>  输入电压~输出电压关系非线性</li>
+</ul>
+</li>
+<li>其他失真<ul>
+<li>陪你率便宜(振荡器误差),相位抖动(振荡器的频率不稳定)</li>
+</ul>
+</li>
+</ul>
+<p>变参信道的影响</p>
+<pre><code>- 变参信道 : 又称时变信道(或随参信道),信道参数随时间而变
+- 变参信道举例 : 无线信道,如天波,地波传输,某些视距传输,各种散射无线信道
+- 变参信道的特性
+    - 衰减随时间变化
+    - 时延随时间变化
+    - 多径效应 : 信号经过几条路径达到接收端,而且每条路径的长度(时延)额衰减都随时间耳边,即存在多径传播现象
+</code></pre><h2 id="信道中的噪声"><a href="#信道中的噪声" class="headerlink" title="信道中的噪声"></a>信道中的噪声</h2><ul>
+<li>噪声的定义<ul>
+<li>存在的不需要的…</li>
+</ul>
+</li>
+<li>…</li>
+<li><p>热噪声</p>
+<ul>
+<li>来源 来自一切电阻性元器件中电子的热运动</li>
+<li>频率范围 : 均匀分布在大约0~10^12Hz</li>
+<li>热噪声电压有效值<br>  V = genghao4kTRB (V)</li>
+<li>式中<br>  k = 1.38 x 10^-23 (j/k) - 波尔兹曼常数<br>  T - 热力学温度(K)<br>  R - 阻值(Ω)<br>  B - 带宽(Hz)</li>
+<li>性质: 高斯白噪声 : 在一般通信系统工作频率范围内热噪声的频谱是均匀分布(功率谱密度在所有频率上是一常数),好像白光的频谱在可见光的频谱范围内均匀分布一样,称为白噪声.其(噪声信号时域表达式)统计特性为高斯分布</li>
+</ul>
+</li>
+<li><p>分类</p>
+<ul>
+<li>脉冲噪声</li>
+<li>窄带噪声</li>
+<li>起伏噪声</li>
+</ul>
+</li>
+<li><p>窄带高斯噪声</p>
+<ul>
+<li>带限白噪声:经过接收机带通滤波过滤的热噪声漫步在是白噪声,是带限(窄带)的白噪声</li>
+<li>窄带高斯噪声 :</li>
+<li>噪声功率</li>
+</ul>
+</li>
+<li>噪声等效带宽 :(为了计算性噪比影响),等效为一个矩形</li>
+</ul>
+<h2 id="信道容量-考试考呢"><a href="#信道容量-考试考呢" class="headerlink" title="信道容量(考试考呢!)"></a>信道容量(考试考呢!)</h2><h3 id="定义-信道的最高信息传输速率-C-R-bmax"><a href="#定义-信道的最高信息传输速率-C-R-bmax" class="headerlink" title="定义 :信道的最高信息传输速率 C = R_bmax"></a>定义 :信道的最高信息传输速率 C = R_bmax</h3><p>香农公式:<br>    带宽有限,平均功率有限的高斯白噪声连续信道(适用条件),其容量为:<br>    C = Blog_2(1+ S/N) (bps)</p>
+<pre><code>S : 信号功率
+B : 信道带宽
+N : 信号带宽内的噪声功率;设噪声单边功率谱密度为n_0(w/Hz),则N = n_0B 因为:双边功率谱密度为n_0/2(w/Hz),故 : N = (n_0/2)XBX2=n_0B
+S/N : 信噪比
+</code></pre><p>多路复用<br>天线<br>B变宽,信噪比变大</p>
+<p>S/n_0 log_2 e</p>
+<p>###</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/03/2018/DSP/intro/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1624,154 +1850,6 @@ windows的snmp服务很容易打开,百度/google一下你就知道了
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/11/2018/SnmpWatcher/report8_12/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/11/2018/SnmpWatcher/report8_12/" itemprop="url">八月十一记录</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-11T14:01:14+08:00">
-                2018-08-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="DONE"><a href="#DONE" class="headerlink" title="DONE"></a>DONE</h2><ul>
-<li>完成前端基本布局<ul>
-<li>主页</li>
-<li>相关基本信息展示</li>
-<li>流量统计的入口</li>
-<li>日志页面</li>
-<li>错误请求</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>完成单一交换机流量统计 api<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*根据ip获取某时间段内的交换机各接口流量数据</span></span><br><span class="line"><span class="comment"> *@params &lt;String&gt; ip 目标交换机ip,默认localhost</span></span><br><span class="line"><span class="comment"> *@params &lt;Long&gt; endTime 截至时间 非必填,默认当前时间</span></span><br><span class="line"><span class="comment"> *@params &lt;Long&gt; startTime 开始时间 非必填 默认endTime-60*60*1000</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">METHOD : GET</span><br><span class="line">url :http:<span class="comment">//&#123;&#123;host&#125;&#125;/switch?ip=xxx&amp;startTime=11111&amp;endTime=22222</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h2><ul>
-<li>交换机网络拓扑结构树状图<ul>
-<li>备注<ul>
-<li>暂时以图片形式展示</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>单一交换机流量统计图形界面</li>
-<li>前端 ajax</li>
-<li>配置多交换机局域网以供测试</li>
-<li>获取局域网内所有交换机连接状态的api</li>
-<li>snmp同时访问多个设备获取数据</li>
-<li>mysql数据库改为sql server</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1822,7 +1900,7 @@ windows的snmp服务很容易打开,百度/google一下你就知道了
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
