@@ -239,6 +239,131 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/07/2018/OS/37/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/07/2018/OS/37/" itemprop="url">3.7 避免死锁</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T15:51:17+08:00">
+                2018-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="3-7-避免死锁"><a href="#3-7-避免死锁" class="headerlink" title="3.7 避免死锁"></a>3.7 避免死锁</h2><h3 id="3-7-1-安全状态"><a href="#3-7-1-安全状态" class="headerlink" title="3.7.1 安全状态"></a>3.7.1 安全状态</h3><ul>
+<li>安全状态，是指系统能按某种进程顺序(P1, P2, …，Pn)(称〈P1, P2, …, Pn〉序列为安全序列)，来为每个进程Pi分配其所需资源，直至满足每个进程对资源的最大需求，使每个进程都可顺利地完成。如果系统无法找到这样一个安全序列，则称系统处于不安全状态。</li>
+</ul>
+<p>-</p>
+<h3 id="3-7-2-利用银行家算法避免死锁"><a href="#3-7-2-利用银行家算法避免死锁" class="headerlink" title="3.7.2 利用银行家算法避免死锁"></a>3.7.2 利用银行家算法避免死锁</h3><p>问题描述：<br>该算法可用于银行发放一笔贷款前，预测该笔贷款是否会引起银行资金周转问题。<br>这里，银行的资金就类似于计算机系统的资源，贷款业务类似于计算机的资源分配。银行家算法能预测一笔贷款业务对银行是否是安全的，该算法也能预测一次资源分配对计算机系统是否是安全的。<br>为实现银行家算法，系统中必须设置若干数据结构。</p>
+<p>银行家算法思想——死锁避免策略：<br>1.当前状态下，某进程申请资源；<br>2.系统假设将资源分给该进程，满足它的需求；<br>3.检查分配后的系统状态是否是安全的，如果是安全，就确认本次分配；如果系统是不安全的，就取消本次分配并阻塞该进程。（第三步又称安全算法）<br>避免死锁策略也称作银行家算法。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/07/2018/OS/35/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -587,7 +712,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
