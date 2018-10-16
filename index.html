@@ -388,7 +388,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/16/2018/Android/dalvikFirstView/" itemprop="url">Dalvik 初接触</a></h1>
+                <a class="post-title-link" href="/2018/10/16/2018/Android/dalvikFirstView/" itemprop="url">Dalvik & Art 初接触</a></h1>
         
 
         <div class="post-meta">
@@ -440,7 +440,25 @@
       
         
           
-            <h1 id="Dalvik初接触"><a href="#Dalvik初接触" class="headerlink" title="Dalvik初接触"></a>Dalvik初接触</h1><p>使用的是寄存器架构而不是栈架构(<a href="https://kfdykme.github.io/2018/10/16/2018/Android/registerArchitectureAndStackArchitecture/" target="_blank" rel="noopener">这是啥</a>)</p>
+            <h1 id="Dalvik-amp-Art-初接触"><a href="#Dalvik-amp-Art-初接触" class="headerlink" title="Dalvik &amp; Art 初接触"></a>Dalvik &amp; Art 初接触</h1><p>也不知道对DVM和Art要了解到什么程度,就先看看吧.</p>
+<h2 id="Dalvik"><a href="#Dalvik" class="headerlink" title="Dalvik"></a>Dalvik</h2><pre><code>在Android系统中，应用程序进程都是由Zygote进程孵化出来的，而Zygote进程是由Init进程启动的。Zygote进程在启动时会创建一个Dalvik虚拟机实例，每当它孵化一个新的应用程序进程时，都会将这个Dalvik虚拟机实例复制到新的应用程序进程里面去，从而使得每一个应用程序进程都有一个独立的Dalvik虚拟机实例。[2]
+</code></pre><p>使用的是寄存器架构而不是栈架构(<a href="https://kfdykme.github.io/2018/10/16/2018/Android/registerArchitectureAndStackArchitecture/" target="_blank" rel="noopener">这是啥</a>)</p>
+<p>JVM是栈架构</p>
+<p>14年google i/o 上 Android L发布,直接删除了Dalvik.用<a href="#Art">Art</a>代替了Dalvik.</p>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>每次运行时,JIT将字节码转换为机器码.</p>
+<ul>
+<li>可以让应用程序安装更快</li>
+<li>更容易在不同硬件和架构上运行</li>
+</ul>
+<h2 id="Art"><a href="#Art" class="headerlink" title="Art"></a>Art</h2><h3 id="应用-1"><a href="#应用-1" class="headerlink" title="应用"></a>应用</h3><p>在应用安装的时候,预编译字节码到机器语言</p>
+<ul>
+<li>占用空间比Dalvik更大</li>
+<li>预编译降低cpu使用频率,可以改善电池续航</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://blog.csdn.net/SilenceOO/article/details/77875732" target="_blank" rel="noopener">深入理解Java虚拟机——JVM、DVM（dalvik）和ART之间的区别</a></li>
+<li><a href="https://blog.csdn.net/luoshengyang/article/details/8885792" target="_blank" rel="noopener">2</a></li>
+</ul>
 
           
         
