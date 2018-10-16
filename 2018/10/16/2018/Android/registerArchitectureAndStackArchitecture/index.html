@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Dalvik,JVM," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="基于寄存器架构和基于栈架构区别二者之间使用的指令集不同 寄存器架构三地址与二地址形式的指令集三地址指令集op dest, src1, src212a = b + c// add a, b, c arm处理器的主要指令集就是三地址形式的 二地址指令集op dest, src12a += b// add a, b x86系列的处理器就是二地址形式的 栈架构零地址指令零地址意味着源和目标d都是隐含参数,">
+<meta name="keywords" content="Dalvik,JVM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于寄存器架构与栈架构">
+<meta property="og:url" content="http://yoursite.com/2018/10/16/2018/Android/registerArchitectureAndStackArchitecture/index.html">
+<meta property="og:site_name" content="枋">
+<meta property="og:description" content="基于寄存器架构和基于栈架构区别二者之间使用的指令集不同 寄存器架构三地址与二地址形式的指令集三地址指令集op dest, src1, src212a = b + c// add a, b, c arm处理器的主要指令集就是三地址形式的 二地址指令集op dest, src12a += b// add a, b x86系列的处理器就是二地址形式的 栈架构零地址指令零地址意味着源和目标d都是隐含参数,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-16T10:37:51.742Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于寄存器架构与栈架构">
+<meta name="twitter:description" content="基于寄存器架构和基于栈架构区别二者之间使用的指令集不同 寄存器架构三地址与二地址形式的指令集三地址指令集op dest, src1, src212a = b + c// add a, b, c arm处理器的主要指令集就是三地址形式的 二地址指令集op dest, src12a += b// add a, b x86系列的处理器就是二地址形式的 栈架构零地址指令零地址意味着源和目标d都是隐含参数,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/16/2018/Android/registerArchitectureAndStackArchitecture/"/>
+
+
+
+
+
+  <title>基于寄存器架构与栈架构 | 枋</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">枋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/2018/Android/registerArchitectureAndStackArchitecture/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">基于寄存器架构与栈架构</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-16T17:49:00+08:00">
+                2018-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="基于寄存器架构和基于栈架构"><a href="#基于寄存器架构和基于栈架构" class="headerlink" title="基于寄存器架构和基于栈架构"></a>基于寄存器架构和基于栈架构</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>二者之间使用的指令集不同</p>
+<h2 id="寄存器架构"><a href="#寄存器架构" class="headerlink" title="寄存器架构"></a>寄存器架构</h2><h3 id="三地址与二地址形式的指令集"><a href="#三地址与二地址形式的指令集" class="headerlink" title="三地址与二地址形式的指令集"></a>三地址与二地址形式的指令集</h3><h4 id="三地址指令集"><a href="#三地址指令集" class="headerlink" title="三地址指令集"></a>三地址指令集</h4><p>op dest, src1, src2<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = b + c</span><br><span class="line"><span class="comment">// add a, b, c</span></span><br></pre></td></tr></table></figure></p>
+<p>arm处理器的主要指令集就是三地址形式的</p>
+<h4 id="二地址指令集"><a href="#二地址指令集" class="headerlink" title="二地址指令集"></a>二地址指令集</h4><p>op dest, src<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a += b</span><br><span class="line"><span class="comment">// add a, b</span></span><br></pre></td></tr></table></figure></p>
+<p>x86系列的处理器就是二地址形式的</p>
+<h2 id="栈架构"><a href="#栈架构" class="headerlink" title="栈架构"></a>栈架构</h2><h3 id="零地址指令"><a href="#零地址指令" class="headerlink" title="零地址指令"></a>零地址指令</h3><p>零地址意味着源和目标d都是隐含参数,其实现依赖与栈</p>
+<p>这个栈指的是求值栈(evaluation stack，也叫做operand stack“操作数栈”或者expression stack“表达式栈”)</p>
+<figure class="highlight java"><figcaption><span>bytecode</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原本应该没有注释2333</span></span><br><span class="line">iconst_1                <span class="comment">//在求值栈压入整形常量1</span></span><br><span class="line">iconst_2                <span class="comment">//在求值栈压入整形常量2</span></span><br><span class="line">iadd                    <span class="comment">//在求值栈弹出两个值,相加后压入求值栈</span></span><br><span class="line">istore_0                <span class="comment">//从求值栈顶弹出一个值,并将值保存到局部变量区的第一个位置</span></span><br></pre></td></tr></table></figure>
+<p>由于指令的源和目标都是隐含的,所以可以用更少的空间放入更多的指令.</p>
+<p>但是一般零地址指令要完成一件事情,会比二地址/三地址指令用更多条指令.</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/pq258280920/article/details/25877265" target="_blank" rel="noopener">基于栈与基于寄存器的指令集架构</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Dalvik/" rel="tag"># Dalvik</a>
+          
+            <a href="/tags/JVM/" rel="tag"># JVM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/16/2018/Android/dalvikFirstView/" rel="next" title="Dalvik 初接触">
+                <i class="fa fa-chevron-left"></i> Dalvik 初接触
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">kfdykme</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于寄存器架构和基于栈架构"><span class="nav-number">1.</span> <span class="nav-text">基于寄存器架构和基于栈架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">1.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄存器架构"><span class="nav-number">1.2.</span> <span class="nav-text">寄存器架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三地址与二地址形式的指令集"><span class="nav-number">1.2.1.</span> <span class="nav-text">三地址与二地址形式的指令集</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#三地址指令集"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">三地址指令集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二地址指令集"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">二地址指令集</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栈架构"><span class="nav-number">1.3.</span> <span class="nav-text">栈架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#零地址指令"><span class="nav-number">1.3.1.</span> <span class="nav-text">零地址指令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kfdykme</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

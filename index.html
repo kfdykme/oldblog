@@ -239,6 +239,581 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/2018/Android/registerArchitectureAndStackArchitecture/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/16/2018/Android/registerArchitectureAndStackArchitecture/" itemprop="url">基于寄存器架构与栈架构</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-16T17:49:00+08:00">
+                2018-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="基于寄存器架构和基于栈架构"><a href="#基于寄存器架构和基于栈架构" class="headerlink" title="基于寄存器架构和基于栈架构"></a>基于寄存器架构和基于栈架构</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>二者之间使用的指令集不同</p>
+<h2 id="寄存器架构"><a href="#寄存器架构" class="headerlink" title="寄存器架构"></a>寄存器架构</h2><h3 id="三地址与二地址形式的指令集"><a href="#三地址与二地址形式的指令集" class="headerlink" title="三地址与二地址形式的指令集"></a>三地址与二地址形式的指令集</h3><h4 id="三地址指令集"><a href="#三地址指令集" class="headerlink" title="三地址指令集"></a>三地址指令集</h4><p>op dest, src1, src2<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = b + c</span><br><span class="line"><span class="comment">// add a, b, c</span></span><br></pre></td></tr></table></figure></p>
+<p>arm处理器的主要指令集就是三地址形式的</p>
+<h4 id="二地址指令集"><a href="#二地址指令集" class="headerlink" title="二地址指令集"></a>二地址指令集</h4><p>op dest, src<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a += b</span><br><span class="line"><span class="comment">// add a, b</span></span><br></pre></td></tr></table></figure></p>
+<p>x86系列的处理器就是二地址形式的</p>
+<h2 id="栈架构"><a href="#栈架构" class="headerlink" title="栈架构"></a>栈架构</h2><h3 id="零地址指令"><a href="#零地址指令" class="headerlink" title="零地址指令"></a>零地址指令</h3><p>零地址意味着源和目标d都是隐含参数,其实现依赖与栈</p>
+<p>这个栈指的是求值栈(evaluation stack，也叫做operand stack“操作数栈”或者expression stack“表达式栈”)</p>
+<figure class="highlight java"><figcaption><span>bytecode</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原本应该没有注释2333</span></span><br><span class="line">iconst_1                <span class="comment">//在求值栈压入整形常量1</span></span><br><span class="line">iconst_2                <span class="comment">//在求值栈压入整形常量2</span></span><br><span class="line">iadd                    <span class="comment">//在求值栈弹出两个值,相加后压入求值栈</span></span><br><span class="line">istore_0                <span class="comment">//从求值栈顶弹出一个值,并将值保存到局部变量区的第一个位置</span></span><br></pre></td></tr></table></figure>
+<p>由于指令的源和目标都是隐含的,所以可以用更少的空间放入更多的指令.</p>
+<p>但是一般零地址指令要完成一件事情,会比二地址/三地址指令用更多条指令.</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/pq258280920/article/details/25877265" target="_blank" rel="noopener">基于栈与基于寄存器的指令集架构</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/2018/Android/dalvikFirstView/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/16/2018/Android/dalvikFirstView/" itemprop="url">Dalvik 初接触</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-16T17:45:00+08:00">
+                2018-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Dalvik初接触"><a href="#Dalvik初接触" class="headerlink" title="Dalvik初接触"></a>Dalvik初接触</h1><p>使用的是寄存器架构而不是栈架构(<a href="\registerArchitectureAndStackArchitecture">这是啥</a>)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/2018/Android/interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/16/2018/Android/interview/" itemprop="url">Android实习生面试</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-16T15:27:00+08:00">
+                2018-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>主要目的是记录下自己Android面试所遇到的问题</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="面试-一"><a href="#面试-一" class="headerlink" title="面试 一"></a>面试 一</h2><ul>
+<li>BFS</li>
+<li>二叉树蛇形遍历</li>
+<li>dalvik 与 art  </li>
+<li>java<ul>
+<li><a href="#codeDetail1"><strong>code1</strong></a></li>
+</ul>
+</li>
+<li>kotlin    <ul>
+<li>apply let</li>
+</ul>
+</li>
+<li>RecyclerView 缓存池<h2 id="面试-二"><a href="#面试-二" class="headerlink" title="面试 二"></a>面试 二</h2></li>
+<li>二分查找</li>
+<li>操作系统<ul>
+<li>linux ipc方式</li>
+</ul>
+</li>
+<li>计算机网络<ul>
+<li>tcp半连接</li>
+<li>窗口</li>
+</ul>
+</li>
+<li>Android<ul>
+<li>ipc</li>
+<li>事件分发<ul>
+<li>onToucEvent先还是拦截先</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>怎么学习的<ul>
+<li>有没有系统的看完一本书</li>
+<li>有没有浏览android developer上面的文章</li>
+</ul>
+</li>
+</ul>
+<h2 id="codeDetail1"><a href="#codeDetail1" class="headerlink" title="codeDetail1"></a>codeDetail1</h2><p><a href="#code1">back</a></p>
+<pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{
+    String a = <span class="string">"abc"</span>;
+    test(a);
+    System.out.println(a);
+}
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(String a)</span></span>{
+    a = <span class="string">"123"</span>;
+}
+</code></pre>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/10/2018/Android/code_revide_1010/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/10/2018/Android/code_revide_1010/" itemprop="url">代码思路回顾x3</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-10T14:23:00+08:00">
+                2018-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="CardsTravel"><a href="#CardsTravel" class="headerlink" title="CardsTravel"></a>CardsTravel</h1><h3 id="FragmentManager"><a href="#FragmentManager" class="headerlink" title="FragmentManager"></a><a href="https://blog.csdn.net/voidreturn/article/details/79181827" target="_blank" rel="noopener">FragmentManager</a></h3><p>getFragmentManager()<br>API level 11 之前 getSupportFragmentManager()  </p>
+<p>addToBackStack(null)</p>
+<h3 id="RecyclerView-Adapter"><a href="#RecyclerView-Adapter" class="headerlink" title="RecyclerView.Adapter"></a>RecyclerView.Adapter</h3><h4 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor()"></a>constructor()</h4><p>至少要有context 然后 数据想办法传进来</p>
+<h4 id="onCraeteViewHolder-parent-viewType"><a href="#onCraeteViewHolder-parent-viewType" class="headerlink" title="onCraeteViewHolder(parent,viewType)"></a>onCraeteViewHolder(parent,viewType)</h4><p>inflate的时候attachRoot = false<br>忘记了为什么了</p>
+<ol>
+<li><p>如果root为null，attachToRoot将失去作用，设置任何值都没有意义。</p>
+</li>
+<li><p>如果root不为null，attachToRoot设为true，则会给加载的布局文件的指定一个父布局，即root。</p>
+</li>
+<li><p>如果root不为null，attachToRoot设为false，则会将布局文件最外层的所有layout属性进行设置，当该view被添加到父view当中时，这些layout属性会自动生效。</p>
+</li>
+<li><p>在不设置attachToRoot参数的情况下，如果root不为null，attachToRoot参数默认为true。<br><a href="https://blog.csdn.net/wang_dasheng/article/details/53056396" target="_blank" rel="noopener">参考</a></p>
+</li>
+</ol>
+<h4 id="onBindViewHolder-holder-position"><a href="#onBindViewHolder-holder-position" class="headerlink" title="onBindViewHolder(holder,position)"></a>onBindViewHolder(holder,position)</h4><h4 id="getItemCount-Int"><a href="#getItemCount-Int" class="headerlink" title="getItemCount():Int"></a>getItemCount():Int</h4><h3 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h3><ul>
+<li>xml声明rv</li>
+<li>setLayoutManager()<a href="https://www.jianshu.com/p/8e578d8ebe5f" target="_blank" rel="noopener">look here</a><ul>
+<li>LinearLayoutManager(context)</li>
+<li>GridLayoutManager(context,spanCount) //spanCount : 列数</li>
+<li>StaggeredGridLayoutManager(spanCount,orientation)</li>
+</ul>
+</li>
+<li>setAdapter()<h4 id="RecyclerView-addOnItemTouchListener"><a href="#RecyclerView-addOnItemTouchListener" class="headerlink" title="RecyclerView.addOnItemTouchListener()"></a>RecyclerView.addOnItemTouchListener()</h4></li>
+</ul>
+<h2 id="HoriGroup-RelativeLayout"><a href="#HoriGroup-RelativeLayout" class="headerlink" title="HoriGroup :RelativeLayout"></a>HoriGroup :RelativeLayout</h2><p>外部依赖的group<br>我忘记用来做什么的了</p>
+<h3 id="onTouchEvent"><a href="#onTouchEvent" class="headerlink" title="onTouchEvent"></a>onTouchEvent</h3><ul>
+<li>VelocityTracker<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> velovityTracker:VelocityTracker? = <span class="literal">null</span></span><br><span class="line">velovityTracker = VelocityTracker.obtain()</span><br><span class="line"></span><br><span class="line">velovityTracker!!.addMovement(event)</span><br><span class="line">velovityTracker!!.computeCurrentVelocity(<span class="number">1000</span>)</span><br><span class="line"><span class="keyword">var</span> xVelocity = velovityTracker.getXVelocity()</span><br><span class="line"><span class="keyword">var</span> yVelocity = velovityTracker.getYVelocity()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(Math.abs(yVelocity) &gt; Math.abs(xVelocity)) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">dealWithXVelocity(xVelocity, mAnimationListener)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+<li>判断横向滑动和纵向滑动速度, x&gt;y时处理,否则不处理</li>
+<li>onLayout的时候测量,重新layout   吧v   </li>
+</ul>
+<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a><a href="https://blog.csdn.net/yancychas/article/details/77484659" target="_blank" rel="noopener">分割线</a></h4><h1 id="kcat2"><a href="#kcat2" class="headerlink" title="kcat2"></a>kcat2</h1><h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><h3 id="MainActivity"><a href="#MainActivity" class="headerlink" title="MainActivity"></a>MainActivity</h3><blockquote>
+<p>主页面,唤起service</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">onCreate</span><br><span class="line">-&gt; initPermission</span><br><span class="line">-&gt; renderPage</span><br><span class="line">-&gt; setListener</span><br><span class="line"></span><br><span class="line">initPermission</span><br><span class="line">-&gt; requestPermission</span><br><span class="line">-&gt; onCreate</span><br><span class="line"></span><br><span class="line">requestPermission</span><br><span class="line">-&gt; onActivityResult</span><br><span class="line">-&gt; startService</span><br><span class="line"></span><br><span class="line">view</span><br><span class="line">.click -&gt; startRunAnimate</span><br><span class="line"></span><br><span class="line">startRunAnimate</span><br><span class="line">.onEnd -&gt; startService</span><br></pre></td></tr></table></figure>
+<h3 id="KatService"><a href="#KatService" class="headerlink" title="KatService"></a>KatService</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//service介绍</span><br><span class="line"></span><br><span class="line">service</span><br><span class="line">-&gt; startStatus</span><br><span class="line">-&gt; bindStatus</span><br><span class="line"></span><br><span class="line">startStatus</span><br><span class="line">-&gt; 后台计算</span><br><span class="line">-&gt; Context.startService()</span><br><span class="line"></span><br><span class="line">bindStatus</span><br><span class="line">-&gt; 其他组件与service交互</span><br><span class="line">-&gt; Context.bindService()</span><br><span class="line"></span><br><span class="line">Context.startService()</span><br><span class="line">-&gt; ContextImpl.startService(Intent)</span><br><span class="line"></span><br><span class="line">ContextImpl.startService(Intent)</span><br><span class="line">-&gt; startServiceComment(Intent,UserHandle)</span><br><span class="line"></span><br><span class="line">startServiceComment(Intent,UserHandle)</span><br><span class="line">-&gt; ActivityManagerNative.getDefault().startService(...)</span><br><span class="line"></span><br><span class="line">ActivityManagerNative.getDefault()</span><br><span class="line">.startService(...) -&gt; mServices.startServiceLocked()</span><br><span class="line">.mServices -&gt; ActiveServices,辅助AMS进行Service管理</span><br><span class="line">.mServices.startServiceLocked() -&gt;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/09/2018/Android/bbs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1002,525 +1577,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/17/2018/Android/wantToRemember/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/17/2018/Android/wantToRemember/" itemprop="url">android感觉要Bei的东西</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-17T20:15:00+08:00">
-                2018-09-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h2><ul>
-<li>设计模式</li>
-<li>多线程</li>
-<li>lambda</li>
-</ul>
-<h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><h2 id="KOTLIN"><a href="#KOTLIN" class="headerlink" title="KOTLIN"></a>KOTLIN</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/17/2018/DSP/9-17/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/17/2018/DSP/9-17/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-17T19:43:00+08:00">
-                2018-09-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h2><ul>
-<li>DES6437实验板</li>
-<li>硬件设计要素<ul>
-<li>主处理器外脚</li>
-<li>外设:DDR,NAWD,USB,SD…</li>
-<li>电源 DC-DC</li>
-<li>时钟</li>
-<li>引导 boot<ul>
-<li>linux<ul>
-<li>uboot -&gt;</li>
-<li>kenel -&gt;</li>
-<li>filesystem</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>评价 : MIps,DSP特点</li>
-</ul>
-</li>
-</ul>
-<h2 id="FIR结构"><a href="#FIR结构" class="headerlink" title="FIR结构"></a>FIR结构</h2><pre><code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//<span class="doctag">NOTE:</span>输出计算</span></span><br><span class="line">sum = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span>(i =<span class="number">0</span>;i&lt;N,i++)</span><br><span class="line">    sum+= x[i]+y[i]</span><br><span class="line"></span><br><span class="line"><span class="comment">//<span class="doctag">NOTE:</span>输入 更新x[i]数组*/</span></span><br><span class="line">x[N<span class="number">-1</span>] = x[N<span class="number">-2</span>]</span><br><span class="line">x[N<span class="number">-2</span>] = x[n<span class="number">-3</span>]</span><br><span class="line">......</span><br><span class="line">x[<span class="number">1</span>]=x[<span class="number">0</span>]</span><br><span class="line">x[<span class="number">0</span>]=newX</span><br><span class="line"></span><br><span class="line"><span class="comment">//<span class="doctag">NOTE:</span>每个输入数组,需要多少计算量</span></span><br><span class="line"><span class="comment">//N次</span></span><br></pre></td></tr></table></figure>
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/08/2018/quickApp/autoHeightTextArea/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/08/2018/quickApp/autoHeightTextArea/" itemprop="url">快应用中高度自适应的textarea组件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-08T21:27:00+08:00">
-                2018-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="快应用中实现高度自适应的textarea组件"><a href="#快应用中实现高度自适应的textarea组件" class="headerlink" title="快应用中实现高度自适应的textarea组件"></a>快应用中实现高度自适应的textarea组件</h1><p>快应用官方自带的控件的表单组件<textarea></textarea>自带的属性/样式比较少,之前不知道怎么实现textarea根据输入的文本行数改变高度.<br>现在实现了,很是高兴</p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>通过修改 textarea的class,使得组件的高度改变为对应class中的值<br>然后又 再次修改 textarea的class,改回没有设置高度的class,这样高度就会自适应为当前组件中内容的高度</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 页面中设置号class会随着 isEx 的改变而改变  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span>  <span class="attr">class</span>=<span class="string">"&#123;&#123;isEx ? 'reply-input-textarea-big' :''&#125;&#125; reply-input-textarea"</span> @<span class="attr">change</span>=<span class="string">"onChangeText"</span>  &gt;</span>&#123;&#123;textToSend&#125;&#125;<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">,onChangeText(e)&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">NOTE:</span> 通过修改 @param isEx 使得 textarea的class改变,高度改变为对应class中的值</span></span><br><span class="line"><span class="comment">     * 然后又 再次修改 @param isEx 使得 textarea的class改回来,高度自适应为当前控件中内容的高度</span></span><br><span class="line"><span class="comment">     * 达到 最大高度的效果</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.isEx = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">this</span>.isEx = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">this</span>.textToSend = e.value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="css"><a href="#css" class="headerlink" title="css"></a>css</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 对应的两个class */</span></span><br><span class="line"><span class="selector-class">.reply-input-textarea-big</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.reply-input-textarea</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80%</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="comment">/* height: 100%; */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/2018/InfomationTheory/Chapter1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/07/2018/InfomationTheory/Chapter1/" itemprop="url">第一章</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-07T10:26:00+08:00">
-                2018-09-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id=""><a href="#" class="headerlink" title="-"></a>-</h1><h2 id="-1"><a href="#-1" class="headerlink" title="-"></a>-</h2><h2 id="-2"><a href="#-2" class="headerlink" title="-"></a>-</h2><h2 id="-3"><a href="#-3" class="headerlink" title="-"></a>-</h2><h3 id="-4"><a href="#-4" class="headerlink" title="-"></a>-</h3><h3 id="信息论研究的对象-目的和内容"><a href="#信息论研究的对象-目的和内容" class="headerlink" title="信息论研究的对象,目的和内容"></a>信息论研究的对象,目的和内容</h3><p>通信系统模型的组成部分</p>
-<ul>
-<li>信源 : 产生消息的源<ul>
-<li>信源研究的主要问题:信源的统计特性和信源产生信息的速率</li>
-</ul>
-</li>
-<li>编码源 : 将信源发出的消息变换成适于信道传送的信号设备<ul>
-<li>信源编码器</li>
-<li>信道编码器:纠错编码器+调制器</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1571,7 +1627,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1584,7 +1640,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
