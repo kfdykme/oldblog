@@ -239,6 +239,405 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/20/2018/PrincleofModernInfomationSystem/Chapter5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/20/2018/PrincleofModernInfomationSystem/Chapter5/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T09:06:52+08:00">
+                2018-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Chapter5"><a href="#Chapter5" class="headerlink" title="Chapter5"></a>Chapter5</h1><p>##</p>
+<p>n(t)只在信道中产生,整个系统的抗噪性能可以用接收机的抗噪洗呢给你来衡量,相同条件</p>
+<h2 id="接收机部分-解调器"><a href="#接收机部分-解调器" class="headerlink" title="接收机部分(解调器)"></a>接收机部分(解调器)</h2><h3 id="统一的分析模型"><a href="#统一的分析模型" class="headerlink" title="统一的分析模型"></a>统一的分析模型</h3><h4 id="统一的解调模型"><a href="#统一的解调模型" class="headerlink" title="统一的解调模型"></a>统一的解调模型</h4><p>Sm(t) -&gt; Sm(t)+N(t) –带通滤波器-&gt; Sm(t)+Ni(t) –解调器 -&gt; Mo(t)+ No(t)</p>
+<p>Bt 带宽<br>Nt 高斯白噪声<br>Nit 窄带高斯白噪声</p>
+<h4 id="时域分析-线性系统-信号-噪声-分开分析"><a href="#时域分析-线性系统-信号-噪声-分开分析" class="headerlink" title="时域分析:线性系统,信号+噪声,分开分析"></a>时域分析:线性系统,信号+噪声,分开分析</h4><p>噪声信号分析<br>nt 平稳高斯白噪声,单边带噪声功率谱密度为..<br>nit 由nt过BPF(前置滤波器)<br>not 有nit过解调器得到</p>
+<p>包络 V(t) 瑞利分布<br>相位 θ(t) 均匀分布</p>
+<p>nit = V(t)cos[2Πf0t+θ(t)]<br>    = V(t)cos(2Πf0t)cosθ(t)-V(t)sin(2Πf0t)sinθ(t)</p>
+<p>f0 就是fc</p>
+<p>同向分量 nct = V(t)cosθ(t)<br>正交xiang分量 nst = V(t)sinθ(t)</p>
+<p>nit = nctcos(…)-nstsin(…)</p>
+<p>均值皆为0.方差相同(自相关函数相同),</p>
+<p>nit 噪声平均功率:</p>
+<pre><code>-----  -----
+</code></pre><p>Ni = nit^2 =nct^2 = … = n0Bt = 2x(n0/2 x Bt)</p>
+<p>有用信号分析<br>已调信号分析</p>
+<p>解调器输入信噪比:<br>Si/Ni = 平均功率/平均功率</p>
+<p>解调器输出信噪比<br>So/No = mot^2/not^2</p>
+<p>调至制度增益 (信噪比增益)</p>
+<p>G = (So/No) / (Si/Ni)</p>
+<h4 id="频域分析-功率谱分析-了解"><a href="#频域分析-功率谱分析-了解" class="headerlink" title="频域分析(功率谱分析,了解)"></a>频域分析(功率谱分析,了解)</h4><h3 id="DSB调至系统的性能"><a href="#DSB调至系统的性能" class="headerlink" title="DSB调至系统的性能"></a>DSB调至系统的性能</h3><h4 id="解调模型"><a href="#解调模型" class="headerlink" title="解调模型"></a>解调模型</h4><p>rt – 前置BPF -&gt; rit –相干解调器-&gt; mot+not</p>
+<p>相干解调器:<br> -x cos(…) -&gt;spt– LPF -&gt;</p>
+<h4 id="时域分析"><a href="#时域分析" class="headerlink" title="时域分析"></a>时域分析</h4><p>Sdsbt = mtcos(…)</p>
+<p>Si = 1/2 m^2<br>噪声<br>……<br>抄书吧  </p>
+<p>DSB调至系统的增益为2,去掉了正交向的噪声</p>
+<p>常规AM</p>
+<h3 id="SSB调制系统的性能"><a href="#SSB调制系统的性能" class="headerlink" title="SSB调制系统的性能"></a>SSB调制系统的性能</h3><h4 id="解调模型-1"><a href="#解调模型-1" class="headerlink" title="解调模型"></a>解调模型</h4><p>带宽时单边</p>
+<p>过程一样</p>
+<h4 id="时域分析-1"><a href="#时域分析-1" class="headerlink" title="时域分析"></a>时域分析</h4><p>输入信噪比<br>输出信噪比<br>spt…</p>
+<p>sdt…</p>
+<p>单边带里面 由正交向,<br>信号的正交向与噪声的正交向一起过滤, 调制增益 1</p>
+<p>G_DSB = 2G_SSB,</p>
+<p>不能说明dsb系统的抗噪声性能比ssb系统好</p>
+<h3 id="AM包络检波的性能"><a href="#AM包络检波的性能" class="headerlink" title="AM包络检波的性能"></a>AM包络检波的性能</h3><h4 id="解调模型-2"><a href="#解调模型-2" class="headerlink" title="解调模型"></a>解调模型</h4><h4 id="时域分析-2"><a href="#时域分析-2" class="headerlink" title="时域分析"></a>时域分析</h4>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/18/2018/FPGAHardwareDesign/Chapter3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/18/2018/FPGAHardwareDesign/Chapter3/" itemprop="url">Chapter 3 基本逻辑与...</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-18T19:34:00+08:00">
+                2018-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>考试形式:开卷</p>
+<h2 id="基本逻辑门电路的Verilog-HDL"><a href="#基本逻辑门电路的Verilog-HDL" class="headerlink" title="基本逻辑门电路的Verilog HDL"></a>基本逻辑门电路的Verilog HDL</h2><ul>
+<li>利用Verilog中预先定义的内置门实例语句 <ul>
+<li>and nand or nor xor xnor buf缓冲器</li>
+</ul>
+</li>
+<li>利用连续赋值assign语句</li>
+</ul>
+<p>与运算<br>真值表<br>assign 只能对线网型变量赋值</p>
+<h2 id="逻辑代数的基本定理和规律"><a href="#逻辑代数的基本定理和规律" class="headerlink" title="逻辑代数的基本定理和规律"></a>逻辑代数的基本定理和规律</h2><h2 id="卡诺图-Karnaugh-Maps"><a href="#卡诺图-Karnaugh-Maps" class="headerlink" title="卡诺图 Karnaugh Maps"></a>卡诺图 Karnaugh Maps</h2><p>从需求-&gt;政治表</p>
+<h2 id="综合案例"><a href="#综合案例" class="headerlink" title="综合案例"></a>综合案例</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/18/2018/FPGAHardwareDesign/Chapter2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/18/2018/FPGAHardwareDesign/Chapter2/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-18T19:30:53+08:00">
+                2018-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/17/2018/Android/wantToRemember/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1210,487 +1609,11 @@ S/N : 信噪比
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/03/2018/PrincleofModernInfomationSystem/Chapter1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/03/2018/PrincleofModernInfomationSystem/Chapter1/" itemprop="url">通信原理 第一章 绪论</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-03T09:10:00+08:00">
-                2018-09-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Chapter1-绪论"><a href="#Chapter1-绪论" class="headerlink" title="Chapter1 绪论"></a>Chapter1 绪论</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>定义</p>
-<h2 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h2><h3 id="通信系统一般模型"><a href="#通信系统一般模型" class="headerlink" title="通信系统一般模型"></a>通信系统一般模型</h3><p>A.系统模型(以电通信为例子)<br>-&gt;发信者-&gt;(模拟/数字)-&gt;发送器-&gt;(模拟)-&gt;信道-&gt;(模拟)-&gt;接收器-&gt;(模拟/数字)-&gt;收信者-&gt;(恢复的消息)</p>
-<p>(其中:()噪声源)-&gt;信道)<br>发信者 : 信息源(简称 信源),各种消息转换成原始电信号(电通信)<br>收信者 : 信宿,原始电信号还原成相应的消息(电通信)<br>发送器 : 基本功能是jiangxinyuanhexindao</p>
-<p>B.关于信源</p>
-<ul>
-<li>信源,消息,信号,信息<ul>
-<li>信源 : 消息的发源地,</li>
-<li>消息 : 由信源产生,通信系统要传送的具体内容</li>
-<li>信号 : 是消息的载体<br>-</li>
-</ul>
-</li>
-<li>数字信源和模拟信源<br>  -<ul>
-<li>模拟信源:信息是由无限多种取值的连续量</li>
-</ul>
-</li>
-<li>常见的消息类型</li>
-<li>文字消息<br>  -<ul>
-<li>语音<ul>
-<li>300~3400Hz</li>
-</ul>
-</li>
-<li>音乐<ul>
-<li>20Hz~15(20)Hz</li>
-</ul>
-</li>
-<li>图像<br>  -</li>
-<li>数据<br>C.典型通信系统(广播电台)</li>
-</ul>
-</li>
-<li>发射端</li>
-<li>接收端</li>
-</ul>
-<h3 id="模拟通信系统模型和数字通信系统模型"><a href="#模拟通信系统模型和数字通信系统模型" class="headerlink" title="模拟通信系统模型和数字通信系统模型"></a>模拟通信系统模型和数字通信系统模型</h3><h4 id="A-模拟通信系统"><a href="#A-模拟通信系统" class="headerlink" title="A 模拟通信系统"></a>A 模拟通信系统</h4><p>传输模拟消息的通信系统<br>分为 : 模拟基带通信系统和模拟带通通信系统</p>
-<p>模拟带通<br>消息信号-&gt;<em>调制</em>-&gt;发射机-&gt;传输媒质-&gt;接收机-&gt;<em>解调</em>-&gt;收到的消息信号<br>调制 : 借助于<em>正弦载波</em>形形成频带信号<br>S(t) = R(t)cos[2Πf_ct+θ(t)]<br>解调 : 逆向</p>
-<h4 id="B-数字信号系统"><a href="#B-数字信号系统" class="headerlink" title="B 数字信号系统"></a>B 数字信号系统</h4><p>传输数字消息的通信系统<br>语音-&gt;格式化-&gt;信源编码(压缩)-&gt;加密-&gt;信道编码-&gt;复用(多用户)-&gt;脉冲基带调制-&gt;频带调制频道扩展-&gt;多址接入-&gt;发射机-&gt;信道-&gt;(逆向)</p>
-<h4 id="C-数字信号的特点"><a href="#C-数字信号的特点" class="headerlink" title="C 数字信号的特点"></a>C 数字信号的特点</h4><h2 id="系统分类与通信方式"><a href="#系统分类与通信方式" class="headerlink" title="系统分类与通信方式"></a>系统分类与通信方式</h2><p>看一下</p>
-<h3 id="通信方式"><a href="#通信方式" class="headerlink" title="通信方式"></a>通信方式</h3><h4 id="两种基本通信方式"><a href="#两种基本通信方式" class="headerlink" title="两种基本通信方式"></a>两种基本通信方式</h4><ul>
-<li>广播</li>
-<li>点-点<h4 id="在点-点方式中-按传输方向可划分为"><a href="#在点-点方式中-按传输方向可划分为" class="headerlink" title="在点-点方式中,按传输方向可划分为:"></a>在点-点方式中,按传输方向可划分为:</h4></li>
-<li>单工</li>
-<li>双工</li>
-<li>半双工<br>…<h2 id="信息及其度量"><a href="#信息及其度量" class="headerlink" title="信息及其度量"></a>信息及其度量</h2>信息是消息中包含的有效内容,即受信者预先不知而待知的内容</li>
-</ul>
-<p>信息的度量:度量消息中包含的信息量</p>
-<h3 id="数字消息的信息量"><a href="#数字消息的信息量" class="headerlink" title="数字消息的信息量"></a>数字消息的信息量</h3><p>数字消息X:{a_1,a_2,…,a_M},其概率为{p_1,p_2,…,p_M},<br>a_i蕴含的信息量为:<br>l_i=log_2(1/p_i)=-log_2(p_i)(1&lt;=i&lt;=M)</p>
-<ul>
-<li>p_i越小,l_i越大</li>
-<li>与消息内容是否有实际意义无关</li>
-<li>单位:比特 ……..</li>
-</ul>
-<p>从信息的角度看,熵和熵率是信源的基本指标</p>
-<ul>
-<li>熵:X所蕴含信息量的平均值<br>H(x)= MΣi=1 I_ip_i = - MΣi=1 p_ilog_2p_i</li>
-<li>熵率 单位时间产生的熵即R=H(X/T)</li>
-</ul>
-<p>..</p>
-<h3 id="连续消息的信息量"><a href="#连续消息的信息量" class="headerlink" title="连续消息的信息量"></a>连续消息的信息量</h3><p>可用概率密度函数来描述,连续消息的平均信息量为 H(x) = -∫^∞ _ -∞ …</p>
-<h2 id="通信系统主要性能指标"><a href="#通信系统主要性能指标" class="headerlink" title="通信系统主要性能指标"></a>通信系统主要性能指标</h2><h3 id="通信系统的基本性能指标"><a href="#通信系统的基本性能指标" class="headerlink" title="通信系统的基本性能指标"></a>通信系统的基本性能指标</h3><ul>
-<li>有效性<ul>
-<li>指在给定信道内能传输的信息的多少</li>
-<li>模拟通信系统:用信号的有效传输频带来度量</li>
-<li>数字通信系统:用传输速率和频带利用率来度量</li>
-<li>频带 : 带宽</li>
-</ul>
-</li>
-<li>可靠性<ul>
-<li>指接受信息的准确程度</li>
-<li>模拟通信系统:用接收端解调输出信噪比来度量</li>
-<li>数字通信系统:用误比特率或误符号率来度量<h3 id="模拟通信系统的基本指标"><a href="#模拟通信系统的基本指标" class="headerlink" title="模拟通信系统的基本指标"></a>模拟通信系统的基本指标</h3></li>
-</ul>
-</li>
-<li>有效性: 频带的宽度模拟小孩</li>
-<li>可靠性:<h3 id="数字通信系统的基本指标"><a href="#数字通信系统的基本指标" class="headerlink" title="数字通信系统的基本指标"></a>数字通信系统的基本指标</h3></li>
-<li>有效性:传输速率,用比特率R_b或波特率R_B表示<ul>
-<li>比特率: bit/s(bps)</li>
-<li>波特率:每秒内系统传送的符号数(码元数),单位为波特(baud)</li>
-<li>关系 R_b = R_Blog_2M,一个码元用M个比特表示,</li>
-<li>利用率: 单位带宽的传输速率,即μ=R_B/B(B/Hz)或μ_b=R_b/B(bps/Hz)</li>
-</ul>
-</li>
-<li>可靠性:误比特率P_b或误符号率P_e<ul>
-<li>二进制传输中 P_b = P_e</li>
-</ul>
-</li>
-</ul>
-<h2 id="小节"><a href="#小节" class="headerlink" title="小节"></a>小节</h2><p>了解通信概要</p>
-<ul>
-<li>基本概念 传输信息</li>
-<li>组成:信源</li>
-<li>分类 模拟,数字;基带,频带<br>…</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/03/2018/PrincleofModernInfomationSystem/intro/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/03/2018/PrincleofModernInfomationSystem/intro/" itemprop="url">介绍一下囖-现代信息系统原理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-03T08:30:00+08:00">
-                2018-09-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>48学时讲怎么打电话 666</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/24/2018/SnmpWatcher/report8_24/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/24/2018/SnmpWatcher/report8_24/" itemprop="url">使用SNMP协议完成对交换机流量的监控</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T08:18:00+08:00">
-                2018-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="使用SNMP协议完成对交换机流量的监控"><a href="#使用SNMP协议完成对交换机流量的监控" class="headerlink" title="使用SNMP协议完成对交换机流量的监控"></a>使用SNMP协议完成对交换机流量的监控</h1><p>8-24结</p>
-<h2 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h2><p><img src="/res/snmpwatcher/demo1.jpg" alt=""><br><img src="/res/snmpwatcher/demo2.jpg" alt=""><br><img src="/res/snmpwatcher/demo3.jpg" alt=""></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一开始接到使用SNMP协议完成对交换机流量监控时还是比较懵逼的,毕竟这东西没有接触过.经过努力后也算是完成了.这篇东西只是大致的回顾,不算是系统的整理类的东西&gt;..</p>
-<p>其实snmp的部分通过调用框架来解决,其他就好说了.</p>
-<p>再简而言之,其实只要发个udp报文,里面塞个snmp报文,剩下的就好说了…..</p>
-<h2 id="Android-Demo-App"><a href="#Android-Demo-App" class="headerlink" title="Android Demo App"></a>Android Demo App</h2><pre><code>- 大致了解一下之后,决定采用android app的形式完成一的demo先.
-    - android
-    - kotlin
-    - snmp4j
-
-这个时候还没有交换机给到,于是尝试打开win10/win7自带的snmp服务进行测试.
-windows的snmp服务很容易打开,百度/google一下你就知道了
-</code></pre><h3 id="主体实现代码"><a href="#主体实现代码" class="headerlink" title="主体实现代码"></a>主体实现代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不支持kotlin语法高亮,差评</span></span><br><span class="line">    <span class="function">fun <span class="title">get</span><span class="params">( )</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        tvMain.text =  <span class="string">"start load \n"</span></span><br><span class="line"></span><br><span class="line">        Thread(Runnable &#123;</span><br><span class="line">            SnmpClient.instance.init(config!!)</span><br><span class="line">            SnmpClient.instance.lisenter = ResponseListener &#123;</span><br><span class="line"></span><br><span class="line">                runOnUiThread &#123;</span><br><span class="line">                    var res = SnmpUtil.convertRes(it.response)</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">for</span>(o in SnmpClient.instance.config!!.varargs)&#123;</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">if</span>(o.oid.equals(it.response.variableBindings.get(<span class="number">0</span>).oid.toString()))&#123;</span><br><span class="line"></span><br><span class="line">                            tvMain.text = tvMain.text.toString() +</span><br><span class="line">                                    o.name + <span class="string">" : "</span>+</span><br><span class="line">                                    res!!.getValue(o.oid)+ <span class="string">"\n"</span></span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            SnmpClient.readAll()</span><br><span class="line"></span><br><span class="line">        &#125;).start()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h3><p>core.SnmpClient<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SnmpClient</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    val TAG = <span class="string">"SnmpClient"</span></span><br><span class="line">    var target :CommunityTarget? = <span class="keyword">null</span></span><br><span class="line">    var targetAddress:Address? = <span class="keyword">null</span></span><br><span class="line">    var config:SnmpConfig? = <span class="keyword">null</span></span><br><span class="line">    var initialized = <span class="keyword">false</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     *  mlistener</span></span><br><span class="line"><span class="comment">     *  将snmp的请求和返回用logger打印出来</span></span><br><span class="line"><span class="comment">     *  并回调listener的onResponse</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    val mlistener :ResponseListener = ResponseListener &#123;</span><br><span class="line"></span><br><span class="line">        Log.i(TAG,<span class="string">"from $&#123;it.peerAddress&#125;"</span>)</span><br><span class="line">        <span class="keyword">if</span>(it.peerAddress!= <span class="keyword">null</span>)&#123;</span><br><span class="line"></span><br><span class="line">            var req = it.request</span><br><span class="line">            var res = it.response</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            Log.i(TAG,<span class="string">"req $req"</span>)</span><br><span class="line">            Log.i(TAG,<span class="string">"res $res"</span>)</span><br><span class="line">            lisenter?.onResponse(it)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var lisenter :ResponseListener ? = <span class="keyword">null</span></span><br><span class="line">    lateinit var snmp :Snmp</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    companion object &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//懒加载的单例</span></span><br><span class="line">        val instance: SnmpClient by lazy &#123; SnmpClient() &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function">fun <span class="title">readAll</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="keyword">for</span>(o in instance.config!!.varargs)&#123;</span><br><span class="line">                instance.get(o.oid)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * init 初始化SnmpCLient 附上addr 和community,版本默认2c</span></span><br><span class="line"><span class="comment">     * @params &lt;String&gt; addr</span></span><br><span class="line"><span class="comment">     * @params &lt;String&gt; community</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="function">fun <span class="title">init</span><span class="params">(config:SnmpConfig)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.config = config</span><br><span class="line">        target = CommunityTarget()</span><br><span class="line">        target!!.community = OctetString(config.community)</span><br><span class="line">        target!!.version = SnmpConstants.version2c</span><br><span class="line"></span><br><span class="line">        targetAddress = GenericAddress.parse(<span class="string">"udp:$&#123;config.ip&#125;/161"</span>)</span><br><span class="line"></span><br><span class="line">        target!!.address = targetAddress</span><br><span class="line">        target!!.retries = <span class="number">5</span></span><br><span class="line">        target!!.timeout = <span class="number">1000</span></span><br><span class="line"></span><br><span class="line">        initialized = <span class="keyword">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">constructor</span><span class="params">()</span></span>&#123;</span><br><span class="line">        var transport = DefaultUdpTransportMapping()</span><br><span class="line">        snmp = Snmp(transport)</span><br><span class="line">        transport.listen()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * sendMessage 发送消息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="function">fun <span class="title">sendMessage</span><span class="params">( pdu:PDU)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!initialized)&#123;</span><br><span class="line">            Log.e(TAG,<span class="string">"SnmpClient 没有初始化"</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        snmp.send(pdu, target,<span class="keyword">null</span>,mlistener)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">fun <span class="title">get</span><span class="params">(oid: String)</span></span>&#123;</span><br><span class="line">        var pdu =PDU()</span><br><span class="line">        pdu.add(VariableBinding(OID(oid)))</span><br><span class="line">        pdu.type = PDU.GET</span><br><span class="line">        sendMessage(pdu)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>最后实现了一个用snmp协议爬取window系统基本信息的demo(当然是在互相连通的情况下).<br>给领导看了一下,于是领导就一个电话拿来了两个交换机供我们测试用</p>
-<h2 id="C-S结构系统"><a href="#C-S结构系统" class="headerlink" title="C/S结构系统"></a>C/S结构系统</h2><p>因为别的原因改成了前后端模式,(本来想写简单的nodejs后台的),于是改成了服务端/网页客户端结构.<br>(c语言的net-snmp貌似也比较成熟,但是咱忘了c了)<br>由于对java后台不甚了解,就打算看看Spring是啥.大致了解之后,再看看拢共才3周的工作时间,我默默找起了别的解决方案.</p>
-<h3 id="Ktor"><a href="#Ktor" class="headerlink" title="Ktor"></a>Ktor</h3><p>然后凭借着对kotlin的兴趣,选择了<a href="&quot;https://ktor.io&quot;">ktor</a>//TODO:<br>假如点击上一行的超链接但是很久才登上去的话,那就该明白这是一个巨坑了.虽然他的getStart很友好,但是我最后部署到公司的win7上去的时候gradle怎么都下不了依赖的包…</p>
-<h3 id="core"><a href="#core" class="headerlink" title="core"></a>core</h3><p>在android demo的基础上作了一定的修改,完善了walk机制与ip,community切换的功能<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class SnmpClient:SnmpBase&#123;</span><br><span class="line"></span><br><span class="line">    val TAG = <span class="string">"SnmpClient"</span></span><br><span class="line">    var target :CommunityTarget? = <span class="keyword">null</span></span><br><span class="line">    var targetAddress:Address? = <span class="keyword">null</span></span><br><span class="line">    var config:SnmpConfig? = <span class="keyword">null</span></span><br><span class="line">    var initialized = <span class="keyword">false</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     *  mlistener</span></span><br><span class="line"><span class="comment">     *  将snmp的请求和返回用logger打印出来</span></span><br><span class="line"><span class="comment">     *  并回调listener的onResponse</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    val mlistener :ResponseListener = ResponseListener &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(it.peerAddress!= <span class="keyword">null</span>)&#123;</span><br><span class="line"></span><br><span class="line">            lisenter?.onResponseGet(it)</span><br><span class="line">        &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">            lisenter?.onFail(it)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">SnmpListener</span> </span>&#123;</span><br><span class="line">        <span class="function">fun <span class="title">onResponseWalk</span><span class="params">(event:ResponseEvent)</span></span></span><br><span class="line"><span class="function">        fun <span class="title">onResponseGet</span><span class="params">(event:ResponseEvent)</span></span></span><br><span class="line"><span class="function">        fun <span class="title">onComplete</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        fun <span class="title">onWalkEnd</span><span class="params">(it:String)</span></span></span><br><span class="line"><span class="function">        fun <span class="title">onFail</span><span class="params">(event: ResponseEvent)</span></span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    var lisenter :SnmpListener ? </span>= <span class="keyword">null</span></span><br><span class="line">    lateinit var snmp :Snmp</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    companion object &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//懒加载的单例</span></span><br><span class="line">        val instance: SnmpClient by lazy &#123; SnmpClient() &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * read 从设备总通过snmp 2c协议获取设备信息并导入到数据库</span></span><br><span class="line"><span class="comment">        * @param ip</span></span><br><span class="line"><span class="comment">        * @param type</span></span><br><span class="line"><span class="comment">        * @param community</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        <span class="function">fun <span class="title">read</span><span class="params">(ip:String,type:String,community:String)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">            instance.config!!.ip = ip</span><br><span class="line">            instance.config!!.type = type</span><br><span class="line">            instance.config!!.community = community</span><br><span class="line">            instance.init(instance.config!!)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(checkConnection(ip,type,community).status == SwitchStatus.STATUS_DISCONNECTED) &#123;</span><br><span class="line">                println(<span class="string">"该设备没有连接上,放弃抓取数据: -- ip = "</span>+ip)</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(o in instance.config!!.varargs)&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(o.method.equals(<span class="string">"GET"</span>))</span><br><span class="line">                &#123;</span><br><span class="line">                    instance.get(o.oid)</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(o.method.equals(<span class="string">"WALK"</span>))&#123;</span><br><span class="line"></span><br><span class="line">                    instance.walk(o.oid)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//<span class="doctag">TODO:</span>好像无法不依赖数据库完成该操作 暂时没有实现该方法</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * checkAllConnection 获取所有设备连接状态</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * return &lt;MutableList&lt;SwitchStatus&gt;&gt;</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        <span class="function">fun <span class="title">checkAllConnection</span><span class="params">()</span>:MutableList&lt;SwitchStatus&gt;</span>&#123;</span><br><span class="line">            var status = mutableListOf&lt;SwitchStatus&gt;()</span><br><span class="line"></span><br><span class="line">            <span class="comment">//对所有已有设备发送get</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> status</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">        * checkConnection 尝试对设备发出请求,并建立连接</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> ip</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> type</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> community</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * return &lt;SwitchStatus&gt; status</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line"></span><br><span class="line">        <span class="function">fun <span class="title">checkConnection</span><span class="params">(ip:String,type:String,community:String)</span>:SwitchStatus</span>&#123;</span><br><span class="line">            var status = SwitchStatus()</span><br><span class="line">            status.ip = ip</span><br><span class="line"></span><br><span class="line">            <span class="comment">//初始化</span></span><br><span class="line">            instance.config!!.ip = ip</span><br><span class="line">            instance.config!!.type = type</span><br><span class="line">            instance.config!!.community = community</span><br><span class="line">            instance.init(instance.config!!)</span><br><span class="line"></span><br><span class="line">            <span class="comment">//初始化失败返回连接不成功</span></span><br><span class="line">            <span class="keyword">if</span>(instance.config!!.varargs.size ==  <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                status.status = SwitchStatus.STATUS_DISCONNECTED</span><br><span class="line">                <span class="keyword">return</span> status</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(va  in instance.config!!.varargs)&#123;</span><br><span class="line">                var pdu =PDU()</span><br><span class="line">                pdu.add(VariableBinding(OID(va.oid)))</span><br><span class="line">                pdu.type = PDU.GET</span><br><span class="line">                var responseEvent = instance.snmp.send(pdu, instance.target)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                <span class="comment">//仅作一次 返回状态</span></span><br><span class="line">                <span class="keyword">if</span>(va == instance.config!!.varargs[<span class="number">0</span>])&#123;</span><br><span class="line">                    <span class="comment">//发送get 没有返回 所以 连接不成功</span></span><br><span class="line">                    <span class="keyword">if</span>(responseEvent == <span class="keyword">null</span> || responseEvent.response == <span class="keyword">null</span>)</span><br><span class="line">                    &#123;</span><br><span class="line">                        status.status = SwitchStatus.STATUS_DISCONNECTED</span><br><span class="line">                        <span class="keyword">return</span> status</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">//有返回,连接成功</span></span><br><span class="line">                    println(responseEvent.peerAddress)</span><br><span class="line">                    status.ip = responseEvent.peerAddress.toString()</span><br><span class="line">                    status.status = SwitchStatus.STATUS_CONNECTED</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                transaction &#123;</span><br><span class="line">                    var q = Watch.select &#123;</span><br><span class="line">                        Watch.ip.eq(ip)</span><br><span class="line">                    &#125;.last()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> status</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//<span class="doctag">NOTE:</span>弃用</span></span><br><span class="line">        <span class="function">fun <span class="title">readAll</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(o in instance.config!!.varargs)&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(o.method.equals(<span class="string">"GET"</span>))</span><br><span class="line">                &#123;</span><br><span class="line">                    instance.get(o.oid)</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(o.method.equals(<span class="string">"WALK"</span>))&#123;</span><br><span class="line"></span><br><span class="line">                    instance.walk(o.oid)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * init 初始化SnmpCLient 附上addr 和community,版本默认2c</span></span><br><span class="line"><span class="comment">     * @params &lt;String&gt; addr</span></span><br><span class="line"><span class="comment">     * @params &lt;String&gt; community</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">    <span class="function">fun <span class="title">init</span><span class="params">(config:SnmpConfig)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.config = config</span><br><span class="line">        target = CommunityTarget()</span><br><span class="line">        target!!.community = OctetString(config.community)</span><br><span class="line">        target!!.version = SnmpConstants.version2c</span><br><span class="line"></span><br><span class="line">        targetAddress = GenericAddress.parse(<span class="string">"udp:$&#123;config.ip&#125;/161"</span>)</span><br><span class="line"></span><br><span class="line">        target!!.address = targetAddress</span><br><span class="line">        target!!.retries = <span class="number">5</span></span><br><span class="line">        target!!.timeout = <span class="number">1000</span></span><br><span class="line"></span><br><span class="line">        initialized = <span class="keyword">true</span></span><br><span class="line">        <span class="keyword">for</span> (o in instance.config!!.varargs) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">this</span>.config!!.lastOid = o.oid</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">constructor</span><span class="params">()</span></span>&#123;</span><br><span class="line">        var transport = DefaultUdpTransportMapping()</span><br><span class="line">        snmp = Snmp(transport)</span><br><span class="line">        transport.listen()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">fun <span class="title">get</span><span class="params">(oid: String)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!initialized)&#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        var pdu =PDU()</span><br><span class="line">        pdu.add(VariableBinding(OID(oid)))</span><br><span class="line">        pdu.type = PDU.GET</span><br><span class="line"></span><br><span class="line">        snmp.send(pdu, target,<span class="keyword">null</span>,mlistener)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">fun <span class="title">walk</span><span class="params">(oid:String)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!initialized)&#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        var pdu =PDU()</span><br><span class="line">        pdu.add(VariableBinding(OID(oid)))</span><br><span class="line">        pdu.type = PDU.GETNEXT</span><br><span class="line"></span><br><span class="line">        var matched = <span class="keyword">true</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(matched)&#123;</span><br><span class="line"></span><br><span class="line">            var responseEvent = snmp.send(pdu,target)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(responseEvent == <span class="keyword">null</span> || responseEvent.response == <span class="keyword">null</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">            var res = responseEvent.response</span><br><span class="line">            var nextOid = <span class="string">""</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(v in res.variableBindings) &#123;</span><br><span class="line">                nextOid = v.oid.toDottedString()</span><br><span class="line">                <span class="keyword">if</span> (!nextOid.startsWith(oid))</span><br><span class="line">                &#123;</span><br><span class="line">                    matched = <span class="keyword">false</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(!matched)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">            lisenter?.onResponseWalk(responseEvent)</span><br><span class="line">            pdu.clear()</span><br><span class="line">            pdu.add( VariableBinding(OID(nextOid)))</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        lisenter?.onWalkEnd(oid)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="exposed"><a href="#exposed" class="headerlink" title="exposed"></a>exposed</h4><p>数据保存在mysql中,ktor与mysql的交互通过exposed实现</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class SnmpDb:SnmpBase()&#123;</span><br><span class="line"></span><br><span class="line">    companion object &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    init &#123;</span><br><span class="line"></span><br><span class="line">        Database.connect(</span><br><span class="line">            user = <span class="string">"r"</span>,</span><br><span class="line">            password = <span class="string">""</span>,</span><br><span class="line">            url = <span class="string">"jdbc:mysql://localhost:3306/snmpwatcher?characterEncoding=utf8&amp;useSSL=true&amp;serverTimezone=UTC"</span>,</span><br><span class="line">            driver = <span class="string">"com.mysql.jdbc.Driver"</span></span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><p>正式部署的时候发现困难重重,so</p>
-<ul>
-<li>傻瓜式一键部署</li>
-<li>多数据库适配</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1736,7 +1659,7 @@ windows的snmp服务很容易打开,百度/google一下你就知道了
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1749,7 +1672,7 @@ windows的snmp服务很容易打开,百度/google一下你就知道了
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

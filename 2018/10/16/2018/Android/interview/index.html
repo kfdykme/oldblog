@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="前言主要目的是记录下自己Android面试所遇到的问题 问题面试 一 BFS 二叉树蛇形遍历 dalvik 与 art   java code1   kotlin     apply let   RecyclerView 缓存池面试 二 二分查找 操作系统 linux ipc方式   计算机网络 tcp半连接 窗口   Android ipc 事件分发 onToucEvent先还是拦截先">
+<meta name="description" content="前言主要目的是记录下自己Android面试所遇到的问题 问题面试 一 BFS 二叉树蛇形遍历 dalvik 与 art   java code1   kotlin     apply let   RecyclerView 缓存池面试 二 二分查找 操作系统 linux ipc方式   计算机网络 tcp半连接 窗口   java list接口 链表列表 多态实现原理 重载与重写的区别">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android实习生面试">
 <meta property="og:url" content="http://yoursite.com/2018/10/16/2018/Android/interview/index.html">
 <meta property="og:site_name" content="枋">
-<meta property="og:description" content="前言主要目的是记录下自己Android面试所遇到的问题 问题面试 一 BFS 二叉树蛇形遍历 dalvik 与 art   java code1   kotlin     apply let   RecyclerView 缓存池面试 二 二分查找 操作系统 linux ipc方式   计算机网络 tcp半连接 窗口   Android ipc 事件分发 onToucEvent先还是拦截先">
+<meta property="og:description" content="前言主要目的是记录下自己Android面试所遇到的问题 问题面试 一 BFS 二叉树蛇形遍历 dalvik 与 art   java code1   kotlin     apply let   RecyclerView 缓存池面试 二 二分查找 操作系统 linux ipc方式   计算机网络 tcp半连接 窗口   java list接口 链表列表 多态实现原理 重载与重写的区别">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-16T09:44:01.145Z">
+<meta property="og:updated_time" content="2018-10-17T12:30:18.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android实习生面试">
-<meta name="twitter:description" content="前言主要目的是记录下自己Android面试所遇到的问题 问题面试 一 BFS 二叉树蛇形遍历 dalvik 与 art   java code1   kotlin     apply let   RecyclerView 缓存池面试 二 二分查找 操作系统 linux ipc方式   计算机网络 tcp半连接 窗口   Android ipc 事件分发 onToucEvent先还是拦截先">
+<meta name="twitter:description" content="前言主要目的是记录下自己Android面试所遇到的问题 问题面试 一 BFS 二叉树蛇形遍历 dalvik 与 art   java code1   kotlin     apply let   RecyclerView 缓存池面试 二 二分查找 操作系统 linux ipc方式   计算机网络 tcp半连接 窗口   java list接口 链表列表 多态实现原理 重载与重写的区别">
 
 
 
@@ -314,13 +314,13 @@
 <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="面试-一"><a href="#面试-一" class="headerlink" title="面试 一"></a>面试 一</h2><ul>
 <li>BFS</li>
 <li>二叉树蛇形遍历</li>
-<li>dalvik 与 art  </li>
+<li><a href="https://kfdykme.github.io/2018/10/16/2018/Android/dalvikFirstView/" target="_blank" rel="noopener">dalvik 与 art</a>  </li>
 <li>java<ul>
 <li><a href="#codeDetail1"><strong>code1</strong></a></li>
 </ul>
 </li>
 <li>kotlin    <ul>
-<li>apply let</li>
+<li><a href="https://blog.csdn.net/u013064109/article/details/78786646" target="_blank" rel="noopener">apply let</a></li>
 </ul>
 </li>
 <li>RecyclerView 缓存池<h2 id="面试-二"><a href="#面试-二" class="headerlink" title="面试 二"></a>面试 二</h2></li>
@@ -332,6 +332,13 @@
 <li>计算机网络<ul>
 <li>tcp半连接</li>
 <li>窗口</li>
+</ul>
+</li>
+<li>java<ul>
+<li>list接口</li>
+<li>链表列表</li>
+<li>多态实现原理</li>
+<li>重载与重写的区别     </li>
 </ul>
 </li>
 <li>Android<ul>
@@ -348,17 +355,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="codeDetail1"><a href="#codeDetail1" class="headerlink" title="codeDetail1"></a>codeDetail1</h2><p><a href="#code1">back</a></p>
-<pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{
-    String a = <span class="string">"abc"</span>;
-    test(a);
-    System.out.println(a);
-}
-
-<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(String a)</span></span>{
-    a = <span class="string">"123"</span>;
-}
-</code></pre>
+<h2 id="codeDetail1"><a href="#codeDetail1" class="headerlink" title="codeDetail1"></a>codeDetail1</h2><p><a href="#code1">back</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    String a = <span class="string">"abc"</span>;</span><br><span class="line">    test(a);</span><br><span class="line">    System.out.println(a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(String a)</span></span>&#123;</span><br><span class="line">    a = <span class="string">"123"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>java 传递的是值而不是引用</p>
 
       
     </div>
@@ -478,7 +476,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -491,7 +489,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

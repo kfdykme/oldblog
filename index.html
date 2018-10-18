@@ -239,6 +239,381 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/17/2018/Java/consumer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/17/2018/Java/consumer/" itemprop="url">Java Consumer</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T21:09:00+08:00">
+                2018-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Java-Consumer"><a href="#Java-Consumer" class="headerlink" title="Java Consumer"></a>Java Consumer</h1><p>Consumer 是一个interface,有两个方法</p>
+<ul>
+<li>accept</li>
+<li>andThen</li>
+</ul>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Consumer</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">accept</span><span class="params">(T t)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">default</span> Consumer&lt;T&gt; <span class="title">andThen</span><span class="params">(Consumer&lt;? <span class="keyword">super</span> T&gt; after)</span></span>&#123;</span><br><span class="line">        Objects.requireNonNull(after);</span><br><span class="line">        <span class="keyword">return</span> (T t) -&gt; &#123;accept(t);after.accept(t)&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Consumer&lt;String&gt;()&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(String s)</span></span>&#123;</span><br><span class="line">        todo()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;.accept(<span class="string">"accepted"</span>)</span><br></pre></td></tr></table></figure>
+<p>由于 andThen()方法由default关键字,所以andThen()方法可以不重写.关于andThen(),下文再说.</p>
+<h3 id="andThen"><a href="#andThen" class="headerlink" title="andThen"></a>andThen</h3><p>可以看到 andThen 是传入一个Consumer 然后返回一个lambda表达式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Consumer</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//..</span></span><br><span class="line">    <span class="function"><span class="keyword">default</span> Consumer&lt;T&gt; <span class="title">andThen</span><span class="params">(Consumer&lt; ? <span class="keyword">super</span> T&gt; after)</span></span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">        <span class="keyword">return</span> (T t) -&gt;&#123;accept(t);after.accept(t)&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>相当于</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Consumer</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//..</span></span><br><span class="line">    <span class="function"><span class="keyword">default</span> Consumer&lt;T&gt; <span class="title">andThen</span><span class="params">(Consumer&lt; ? <span class="keyword">super</span> T&gt; after)</span></span>&#123;</span><br><span class="line">        <span class="comment">//...</span></span><br><span class="line">        Consumer&lt;T&gt; p = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Consumer&lt;T&gt;()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(T t)</span></span>&#123;</span><br><span class="line">                p.accept(t);</span><br><span class="line">                after.accept(t);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>就是说,在andThen返回的这个Consumer上调用accept()的话会执行父Consumer的accept()回调,然后再执行after的accept()</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/17/2018/Java/iterable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/17/2018/Java/iterable/" itemprop="url">Iterable 及其常用子类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T20:58:00+08:00">
+                2018-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Iterable-及其常用子类"><a href="#Iterable-及其常用子类" class="headerlink" title="Iterable 及其常用子类"></a>Iterable 及其常用子类</h1><h2 id="Iterable"><a href="#Iterable" class="headerlink" title="Iterable"></a>Iterable</h2><p>这是jdk8的Iterable 的源码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterable</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function">Iterator&lt;T&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">forEach</span><span class="params">(Consumer&lt;? <span class="keyword">super</span> T&gt; action)</span></span>&#123;</span><br><span class="line">        Objects.requireNonNull(action);</span><br><span class="line">        <span class="keyword">for</span>(T t: <span class="keyword">this</span>)&#123;</span><br><span class="line">            action.accept(t);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">default</span> Spliterator&lt;T&gt; <span class="title">spliterator</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Spliterator.spliteratorUnknownSize(iterator());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到有<a href="https://blog.csdn.net/MOVIE14/article/details/76559479" target="_blank" rel="noopener">default</a>这个关键字,不清楚的可以了解一下.</p>
+<h3 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h3><h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3><h3 id="spliterator"><a href="#spliterator" class="headerlink" title="spliterator"></a>spliterator</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/17/2018/Java/javaArray/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kfdykme">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="枋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/17/2018/Java/javaArray/" itemprop="url">Java数组</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T20:44:00+08:00">
+                2018-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Java-数组"><a href="#Java-数组" class="headerlink" title="Java 数组"></a>Java 数组</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在java中,声明一个变量时仅仅是在栈内存中声明该变量的引用.当new 的时候才会在堆内存中分配内存空间.然后该引用指向对应的内存空间.</p>
+<h2 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br></pre></td></tr></table></figure>
+<p>int[] a -&gt; 在栈内存中定义了空引用<br>new int[10] -&gt; 在堆内存中动态分配内存空间<br>int[] a = new int[10] -&gt; 引用指向内存</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/2018/Android/registerArchitectureAndStackArchitecture/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -457,7 +832,7 @@
 </ul>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
 <li><a href="https://blog.csdn.net/SilenceOO/article/details/77875732" target="_blank" rel="noopener">深入理解Java虚拟机——JVM、DVM（dalvik）和ART之间的区别</a></li>
-<li><a href="https://blog.csdn.net/luoshengyang/article/details/8885792" target="_blank" rel="noopener">2</a></li>
+<li><a href="https://blog.csdn.net/luoshengyang/article/details/8885792" target="_blank" rel="noopener">2</a> Dalvik虚拟机的启动过程分析</li>
 </ul>
 
           
@@ -582,13 +957,13 @@
 <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="面试-一"><a href="#面试-一" class="headerlink" title="面试 一"></a>面试 一</h2><ul>
 <li>BFS</li>
 <li>二叉树蛇形遍历</li>
-<li>dalvik 与 art  </li>
+<li><a href="https://kfdykme.github.io/2018/10/16/2018/Android/dalvikFirstView/" target="_blank" rel="noopener">dalvik 与 art</a>  </li>
 <li>java<ul>
 <li><a href="#codeDetail1"><strong>code1</strong></a></li>
 </ul>
 </li>
 <li>kotlin    <ul>
-<li>apply let</li>
+<li><a href="https://blog.csdn.net/u013064109/article/details/78786646" target="_blank" rel="noopener">apply let</a></li>
 </ul>
 </li>
 <li>RecyclerView 缓存池<h2 id="面试-二"><a href="#面试-二" class="headerlink" title="面试 二"></a>面试 二</h2></li>
@@ -600,6 +975,13 @@
 <li>计算机网络<ul>
 <li>tcp半连接</li>
 <li>窗口</li>
+</ul>
+</li>
+<li>java<ul>
+<li>list接口</li>
+<li>链表列表</li>
+<li>多态实现原理</li>
+<li>重载与重写的区别     </li>
 </ul>
 </li>
 <li>Android<ul>
@@ -616,17 +998,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="codeDetail1"><a href="#codeDetail1" class="headerlink" title="codeDetail1"></a>codeDetail1</h2><p><a href="#code1">back</a></p>
-<pre><code class="java"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>{
-    String a = <span class="string">"abc"</span>;
-    test(a);
-    System.out.println(a);
-}
-
-<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(String a)</span></span>{
-    a = <span class="string">"123"</span>;
-}
-</code></pre>
+<h2 id="codeDetail1"><a href="#codeDetail1" class="headerlink" title="codeDetail1"></a>codeDetail1</h2><p><a href="#code1">back</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    String a = <span class="string">"abc"</span>;</span><br><span class="line">    test(a);</span><br><span class="line">    System.out.println(a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(String a)</span></span>&#123;</span><br><span class="line">    a = <span class="string">"123"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>java 传递的是值而不是引用</p>
 
           
         
@@ -1196,410 +1569,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/20/2018/PrincleofModernInfomationSystem/Chapter5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/20/2018/PrincleofModernInfomationSystem/Chapter5/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T09:06:52+08:00">
-                2018-09-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Chapter5"><a href="#Chapter5" class="headerlink" title="Chapter5"></a>Chapter5</h1><p>##</p>
-<p>n(t)只在信道中产生,整个系统的抗噪性能可以用接收机的抗噪洗呢给你来衡量,相同条件</p>
-<h2 id="接收机部分-解调器"><a href="#接收机部分-解调器" class="headerlink" title="接收机部分(解调器)"></a>接收机部分(解调器)</h2><h3 id="统一的分析模型"><a href="#统一的分析模型" class="headerlink" title="统一的分析模型"></a>统一的分析模型</h3><h4 id="统一的解调模型"><a href="#统一的解调模型" class="headerlink" title="统一的解调模型"></a>统一的解调模型</h4><p>Sm(t) -&gt; Sm(t)+N(t) –带通滤波器-&gt; Sm(t)+Ni(t) –解调器 -&gt; Mo(t)+ No(t)</p>
-<p>Bt 带宽<br>Nt 高斯白噪声<br>Nit 窄带高斯白噪声</p>
-<h4 id="时域分析-线性系统-信号-噪声-分开分析"><a href="#时域分析-线性系统-信号-噪声-分开分析" class="headerlink" title="时域分析:线性系统,信号+噪声,分开分析"></a>时域分析:线性系统,信号+噪声,分开分析</h4><p>噪声信号分析<br>nt 平稳高斯白噪声,单边带噪声功率谱密度为..<br>nit 由nt过BPF(前置滤波器)<br>not 有nit过解调器得到</p>
-<p>包络 V(t) 瑞利分布<br>相位 θ(t) 均匀分布</p>
-<p>nit = V(t)cos[2Πf0t+θ(t)]<br>    = V(t)cos(2Πf0t)cosθ(t)-V(t)sin(2Πf0t)sinθ(t)</p>
-<p>f0 就是fc</p>
-<p>同向分量 nct = V(t)cosθ(t)<br>正交xiang分量 nst = V(t)sinθ(t)</p>
-<p>nit = nctcos(…)-nstsin(…)</p>
-<p>均值皆为0.方差相同(自相关函数相同),</p>
-<p>nit 噪声平均功率:</p>
-<pre><code>-----  -----
-</code></pre><p>Ni = nit^2 =nct^2 = … = n0Bt = 2x(n0/2 x Bt)</p>
-<p>有用信号分析<br>已调信号分析</p>
-<p>解调器输入信噪比:<br>Si/Ni = 平均功率/平均功率</p>
-<p>解调器输出信噪比<br>So/No = mot^2/not^2</p>
-<p>调至制度增益 (信噪比增益)</p>
-<p>G = (So/No) / (Si/Ni)</p>
-<h4 id="频域分析-功率谱分析-了解"><a href="#频域分析-功率谱分析-了解" class="headerlink" title="频域分析(功率谱分析,了解)"></a>频域分析(功率谱分析,了解)</h4><h3 id="DSB调至系统的性能"><a href="#DSB调至系统的性能" class="headerlink" title="DSB调至系统的性能"></a>DSB调至系统的性能</h3><h4 id="解调模型"><a href="#解调模型" class="headerlink" title="解调模型"></a>解调模型</h4><p>rt – 前置BPF -&gt; rit –相干解调器-&gt; mot+not</p>
-<p>相干解调器:<br> -x cos(…) -&gt;spt– LPF -&gt;</p>
-<h4 id="时域分析"><a href="#时域分析" class="headerlink" title="时域分析"></a>时域分析</h4><p>Sdsbt = mtcos(…)</p>
-<p>Si = 1/2 m^2<br>噪声<br>……<br>抄书吧  </p>
-<p>DSB调至系统的增益为2,去掉了正交向的噪声</p>
-<p>常规AM</p>
-<h3 id="SSB调制系统的性能"><a href="#SSB调制系统的性能" class="headerlink" title="SSB调制系统的性能"></a>SSB调制系统的性能</h3><h4 id="解调模型-1"><a href="#解调模型-1" class="headerlink" title="解调模型"></a>解调模型</h4><p>带宽时单边</p>
-<p>过程一样</p>
-<h4 id="时域分析-1"><a href="#时域分析-1" class="headerlink" title="时域分析"></a>时域分析</h4><p>输入信噪比<br>输出信噪比<br>spt…</p>
-<p>sdt…</p>
-<p>单边带里面 由正交向,<br>信号的正交向与噪声的正交向一起过滤, 调制增益 1</p>
-<p>G_DSB = 2G_SSB,</p>
-<p>不能说明dsb系统的抗噪声性能比ssb系统好</p>
-<h3 id="AM包络检波的性能"><a href="#AM包络检波的性能" class="headerlink" title="AM包络检波的性能"></a>AM包络检波的性能</h3><h4 id="解调模型-2"><a href="#解调模型-2" class="headerlink" title="解调模型"></a>解调模型</h4><h4 id="时域分析-2"><a href="#时域分析-2" class="headerlink" title="时域分析"></a>时域分析</h4>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/18/2018/FPGAHardwareDesign/Chapter3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/18/2018/FPGAHardwareDesign/Chapter3/" itemprop="url">Chapter 3 基本逻辑与...</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-18T19:34:00+08:00">
-                2018-09-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>考试形式:开卷</p>
-<h2 id="基本逻辑门电路的Verilog-HDL"><a href="#基本逻辑门电路的Verilog-HDL" class="headerlink" title="基本逻辑门电路的Verilog HDL"></a>基本逻辑门电路的Verilog HDL</h2><ul>
-<li>利用Verilog中预先定义的内置门实例语句 <ul>
-<li>and nand or nor xor xnor buf缓冲器</li>
-</ul>
-</li>
-<li>利用连续赋值assign语句</li>
-</ul>
-<p>与运算<br>真值表<br>assign 只能对线网型变量赋值</p>
-<h2 id="逻辑代数的基本定理和规律"><a href="#逻辑代数的基本定理和规律" class="headerlink" title="逻辑代数的基本定理和规律"></a>逻辑代数的基本定理和规律</h2><h2 id="卡诺图-Karnaugh-Maps"><a href="#卡诺图-Karnaugh-Maps" class="headerlink" title="卡诺图 Karnaugh Maps"></a>卡诺图 Karnaugh Maps</h2><p>从需求-&gt;政治表</p>
-<h2 id="综合案例"><a href="#综合案例" class="headerlink" title="综合案例"></a>综合案例</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/18/2018/FPGAHardwareDesign/Chapter2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kfdykme">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="枋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/18/2018/FPGAHardwareDesign/Chapter2/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-18T19:30:53+08:00">
-                2018-09-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1645,7 +1619,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1658,7 +1632,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
